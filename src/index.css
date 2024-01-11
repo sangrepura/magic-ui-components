@@ -52,9 +52,9 @@
     -webkit-animation-name: shimmer;
     -moz-animation-name: shimmer;
     animation-name: shimmer;
-    -webkit-animation-duration: 20s;
-    -moz-animation-duration: 20s;
-    animation-duration: 20s;
+    -webkit-animation-duration: 7s;
+    -moz-animation-duration: 7s;
+    animation-duration: 7s;
     -webkit-animation-delay: -5s;
     -moz-animation-delay: -5s;
     animation-delay: -5s;
