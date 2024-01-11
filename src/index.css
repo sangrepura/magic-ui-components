@@ -52,65 +52,86 @@
     -webkit-animation-name: shimmer;
     -moz-animation-name: shimmer;
     animation-name: shimmer;
-    -webkit-animation-duration: 7s;
-    -moz-animation-duration: 7s;
-    animation-duration: 7s;
-    -webkit-animation-delay: -5s;
-    -moz-animation-delay: -5s;
-    animation-delay: -5s;
+    -webkit-animation-duration: 15s;
+    -moz-animation-duration: 15s;
+    animation-duration: 15s;
+    -webkit-animation-delay: 3s;
+    -moz-animation-delay: 3s;
+    animation-delay: 3s;
     -webkit-animation-iteration-count: infinite;
     -moz-animation-iteration-count: infinite;
     animation-iteration-count: infinite;
     background-repeat: no-repeat;
     background-position: 0 0;
+
     background-color: #222;
+    transition: background-position 2s ease-in-out;
   }
+}
 
-  @-moz-keyframes shimmer {
-    0% {
-      background-position: left;
-    }
-    50% {
-      background-position: right;
-    }
-    100% {
-      background-position: left;
-    }
+@-moz-keyframes shimmer {
+  0% {
+    background-position: -100vw 0;
   }
-
-  @-webkit-keyframes shimmer {
-    0% {
-      background-position: left;
-    }
-    50% {
-      background-position: right;
-    }
-    100% {
-      background-position: left;
-    }
+  50% {
+    background-position: 100vw 0;
   }
-
-  @-o-keyframes shimmer {
-    0% {
-      background-position: left;
-    }
-    50% {
-      background-position: right;
-    }
-    100% {
-      background-position: left;
-    }
+  100% {
+    background-position: -100vw 0;
   }
+}
 
+@-webkit-keyframes shimmer {
+  0% {
+    background-position: -100vw 0;
+  }
+  50% {
+    background-position: 100vw 0;
+  }
+  100% {
+    background-position: -100vw 0;
+  }
+}
+
+@-o-keyframes shimmer {
+  0% {
+    background-position: -100vw 0;
+  }
+  50% {
+    background-position: 100vw 0;
+  }
+  100% {
+    background-position: -100vw 0;
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -900px 0;
+  }
+  50% {
+    background-position: 900px 0;
+  }
+  100% {
+    background-position: -900px 0;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .shimmer {
+    -webkit-animation-duration: 10s;
+    -moz-animation-duration: 10s;
+    animation-duration: 10s;
+  }
   @keyframes shimmer {
     0% {
-      background-position: left;
+      background-position: -100vw 0;
     }
     50% {
-      background-position: right;
+      background-position: 100vw 0;
     }
     100% {
-      background-position: left;
+      background-position: -100vw 0;
     }
   }
 }
