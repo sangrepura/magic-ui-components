@@ -1,6 +1,6 @@
 import React from "react";
-import TextRevealByChar from "./components/TextRevealByChar";
-import TextRevealByWord from "./components/TextrevealByword";
+import TextRevealByChar from "./components/TextRevealChar";
+import TextRevealByWord from "./components/TextRevealWord";
 export default function App() {
   return (
     <main>
