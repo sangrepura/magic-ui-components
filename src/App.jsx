@@ -1,6 +1,7 @@
 import React from "react";
 import TextRevealByChar from "./components/text-reveal/TextRevealCharacter";
 import TextRevealByWord from "./components/text-reveal/TextRevealWord";
+import TextShimmer from "./components/text-shimmer/TextShimmer";
 export default function App() {
   return (
     <main>
@@ -21,11 +22,7 @@ export default function App() {
           End for now 🎉
         </h2>
       </div>
-      <div className="h-[50vh] bg-neutral-900">
-        <h1 className="shimmer font-normal text-2xl md:text-3xl lg:text-4xl xl:text-5xl flex items-center h-[50vh] text-neutral-500/20 justify-center">
-          Press D to get the shimmer effect
-        </h1>
-      </div>
+      <TextShimmer />
     </main>
   );
 }
