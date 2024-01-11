@@ -17,7 +17,7 @@ export default function TextRevealByChar() {
   }, [scrollYProgress]);
 
   const text =
-    "This is scroll by Characters.In Chronicle everything is made with Blocks that come with pixel perfect design, interactivity and motion out of the box. Instead of designing from scratch, simply choose the right one from our library of blocks and see the magic unfold.";
+    "This is scroll by Characters. In Chronicle everything is made with Blocks that come with pixel perfect design, interactivity and motion out of the box. Instead of designing from scratch, simply choose the right one from our library of blocks and see the magic unfold.";
   const words = text.split(" ");
 
   return (
