@@ -26,7 +26,7 @@ export default function TextRevealByWord() {
           <div className="max-w-4xl mx-auto px-[1rem]">
             <p
               ref={targetRef}
-              className="paragraph flex flex-wrap text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold p-[40px]"
+              className="paragraph flex flex-wrap text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold p-5 md:p-8 lg:p-10"
             >
               {words.map((word, i) => {
                 const start = i / words.length;
