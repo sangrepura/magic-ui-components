@@ -6,4 +6,14 @@
   body {
     font-family: "Gabarito", sans-serif;
   }
+
+  body::-webkit-scrollbar {
+    width: 1rem;
+    background-color: #242323;
+    cursor: pointer;
+  }
+
+  body::-webkit-scrollbar-thumb {
+    background-color: #e07e0e;
+  }
 }
