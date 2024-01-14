@@ -2,7 +2,18 @@
 export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
-    extend: {},
+    extend: {
+      keyframes: {
+        shimmer: {
+          "0%": { "background-position": "-320px 0" },
+          "50%": { "background-position": "320px 0" },
+          "100%": { "background-position": "-320px 0" },
+        },
+      },
+      animation: {
+        shimmer: "shimmer 12s infinite",
+      },
+    },
   },
   plugins: [],
 };

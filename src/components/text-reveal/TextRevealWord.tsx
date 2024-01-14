@@ -1,22 +1,35 @@
-import React from "react";
+import React, { FC, ReactNode, useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
-import { useRef, useEffect } from "react";
 
-export default function TextRevealByWord() {
-  const targetRef = useRef(null);
+interface WordProps {
+  children: ReactNode;
+  progress: any; // Replace 'any' with the actual type
+  range: [number, number];
+}
+
+const Word: FC<WordProps> = ({ children, progress, range }) => {
+  const opacity = useTransform(progress, range, [0.2, 1]);
+  return (
+    <span className="word relative mx-1 lg:mx-2.5 xl:lg-3">
+      <span className="shadow absolute opacity-30">{children}</span>
+      <motion.span style={{ opacity: opacity }} className="text-white">
+        {children}
+      </motion.span>
+    </span>
+  );
+};
+
+interface TextRevealByWordProps {
+  text: string;
+}
+
+const TextRevealByWord: FC<TextRevealByWordProps> = ({ text }) => {
+  const targetRef = useRef<HTMLDivElement | null>(null);
 
   const { scrollYProgress } = useScroll({
     target: targetRef,
   });
 
-  useEffect(() => {
-    scrollYProgress.on("change", (v) => {
-      console.log(v);
-    });
-  }, [scrollYProgress]);
-
-  const text =
-    "This is scroll by words. In Chronicle everything is made with Blocks that come with pixel perfect design, interactivity and motion out of the box. Instead of designing from scratch, simply choose the right one from our library of blocks and see the magic unfold.";
   const words = text.split(" ");
 
   return (
@@ -43,16 +56,6 @@ export default function TextRevealByWord() {
       </div>
     </main>
   );
-}
-
-const Word = ({ children, progress, range }) => {
-  const opacity = useTransform(progress, range, [0, 1], [0.2, 1]);
-  return (
-    <span className="word relative mx-1 lg:mx-2.5 xl:lg-3">
-      <span className="shadow absolute opacity-30">{children}</span>
-      <motion.span style={{ opacity: opacity }} className="text-white">
-        {children}
-      </motion.span>
-    </span>
-  );
 };
+
+export default TextRevealByWord;
