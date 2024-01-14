@@ -10,11 +10,6 @@ export default function TextRevealByChar() {
   const { scrollYProgress } = useScroll({
     target: targetRef,
   });
-  useEffect(() => {
-    scrollYProgress.on("change", (v) => {
-      console.log(v);
-    });
-  }, [scrollYProgress]);
 
   const text =
     "This is scroll by Characters. In Chronicle everything is made with Blocks that come with pixel perfect design, interactivity and motion out of the box. Instead of designing from scratch, simply choose the right one from our library of blocks and see the magic unfold.";
