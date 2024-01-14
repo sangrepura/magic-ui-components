@@ -10,7 +10,7 @@ const TextShimmer: FC<TextShimmerProps> = ({ text, className }) => {
   return (
     <p
       className={cn(
-        "max-w-md mx-auto shimmer font-normal text-neutral-500/20",
+        "max-w-md mx-auto shimmer animate-shimmer font-normal bg-clip-text bg-[length:70px_100px] bg-no-repeat bg-left-top bg-[#222] transition-all duration-100 text-center ease-[cubic-bezier(0.4,0,0.2,1)] text-transparent",
         className
       )}
     >

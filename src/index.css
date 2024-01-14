@@ -18,7 +18,6 @@
   }
 
   .shimmer {
-    text-align: center;
     background: -webkit-gradient(
       linear,
       left top,
@@ -43,72 +42,5 @@
       to(#222),
       color-stop(0.5, #fff)
     );
-    -webkit-background-size: 70px 100%;
-    -moz-background-size: 70px 100%;
-    background-size: 70px 100%;
-    -webkit-background-clip: text;
-    -moz-background-clip: text;
-    background-clip: text;
-    -webkit-animation-name: shimmer;
-    -moz-animation-name: shimmer;
-    animation-name: shimmer;
-    -webkit-animation-duration: 12s;
-    -moz-animation-duration: 12s;
-    animation-duration: 12s;
-    -webkit-animation-iteration-count: infinite;
-    -moz-animation-iteration-count: infinite;
-    animation-iteration-count: infinite;
-    background-repeat: no-repeat;
-    background-position: 0 0;
-    background-color: #222;
-    transition: background-position 1s cubic-bezier(0.4, 0, 0.2, 1);
-  }
-}
-
-@-moz-keyframes shimmer {
-  0% {
-    background-position: -320px 0;
-  }
-  50% {
-    background-position: 320px 0;
-  }
-  100% {
-    background-position: -320px 0;
-  }
-}
-
-@-webkit-keyframes shimmer {
-  0% {
-    background-position: -320px 0;
-  }
-  50% {
-    background-position: 320px 0;
-  }
-  100% {
-    background-position: -320px 0;
-  }
-}
-
-@-o-keyframes shimmer {
-  0% {
-    background-position: -320px 0;
-  }
-  50% {
-    background-position: 320px 0;
-  }
-  100% {
-    background-position: -320px 0;
-  }
-}
-
-@keyframes shimmer {
-  0% {
-    background-position: -320px 0;
-  }
-  50% {
-    background-position: 320px 0;
-  }
-  100% {
-    background-position: -320px 0;
   }
 }
