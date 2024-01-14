@@ -3,10 +3,6 @@ export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     extend: {
-      backgroundImage: {
-        shimmerGradient:
-          "linear-gradient(to right, #f6f7f8 4%, #edeef1 25%, #f6f7f8 36%)",
-      },
       keyframes: {
         shimmer: {
           "0%": {
