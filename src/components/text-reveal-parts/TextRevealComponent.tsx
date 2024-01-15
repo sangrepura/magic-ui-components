@@ -30,6 +30,8 @@ const TextRevealComponent: FC<TextRevealByWordComponentProps> = ({ text }) => {
             <TextRevealByWordComponent
               scrollYProgress={scrollYProgress}
               text={text}
+              animatedTextColorClassName="text-red-500"
+              defaultTextOpacityClassName="opacity-30"
             />
           </TextRevealParagraph>
         </TextRevealParagraphContainer>

@@ -34,10 +34,27 @@ const TextRevealStickyContainer: FC<TextRevealStickyContainerProps> = ({
   return (
     <div
       className={cn(
-        "sticky top-0 py-[5rem] px-0 flex items-center h-[50%] text-white/20 bg-neutral-900",
+        "sticky top-0 py-[5rem] px-0 flex items-center h-[50%] bg-neutral-900",
         className
       )}
     >
+      {children}
+    </div>
+  );
+};
+
+// This component is used to create the paragraph container
+interface TextRevealParagraphContainerProps {
+  children?: React.ReactNode;
+  className?: string;
+}
+
+const TextRevealParagraphContainer: FC<TextRevealParagraphContainerProps> = ({
+  children,
+  className,
+}) => {
+  return (
+    <div className={cn("max-w-4xl mx-auto px-[1rem]", className)}>
       {children}
     </div>
   );
@@ -59,7 +76,7 @@ const TextRevealParagraph: FC<TextRevealParagraphProps> = ({
     <p
       ref={targetRef}
       className={cn(
-        "paragraph flex flex-wrap text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold p-5 md:p-8 lg:p-10",
+        "paragraph flex flex-wrap text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold p-5 md:p-8 lg:p-10 text-white/20",
         className
       )}
     >
@@ -68,36 +85,32 @@ const TextRevealParagraph: FC<TextRevealParagraphProps> = ({
   );
 };
 
-// This component is used to create the paragraph container
-interface TextRevealParagraphContainerProps {
-  children?: React.ReactNode;
-  className?: string;
-}
-
-const TextRevealParagraphContainer: FC<TextRevealParagraphContainerProps> = ({
-  children,
-  className,
-}) => {
-  return (
-    <div className={cn("max-w-4xl mx-auto px-[1rem]", className)}>
-      {children}
-    </div>
-  );
-};
-
 // This component is used to create the words
 interface WordProps {
   children: ReactNode;
   progress: any;
   range: [number, number];
+  defaultTextOpacityClassName?: string;
+  animatedTextColorClassName?: string;
 }
 
-const Word: FC<WordProps> = ({ children, progress, range }) => {
-  const opacity = useTransform(progress, range, [0.2, 1]);
+const Word: FC<WordProps> = ({
+  children,
+  progress,
+  range,
+  defaultTextOpacityClassName,
+  animatedTextColorClassName,
+}) => {
+  const opacity = useTransform(progress, range, [0, 1]);
   return (
     <span className="word relative mx-1 lg:mx-2.5 xl:lg-3">
-      <span className="shadow absolute opacity-30">{children}</span>
-      <motion.span style={{ opacity: opacity }} className="text-white">
+      <span className={cn("absolute opacity-30", defaultTextOpacityClassName)}>
+        {children}
+      </span>
+      <motion.span
+        style={{ opacity: opacity }}
+        className={cn("text-white", animatedTextColorClassName)}
+      >
         {children}
       </motion.span>
     </span>
@@ -108,11 +121,15 @@ const Word: FC<WordProps> = ({ children, progress, range }) => {
 interface TextRevealByWordComponentProps {
   text: string;
   scrollYProgress: any;
+  defaultTextOpacityClassName?: string;
+  animatedTextColorClassName?: string;
 }
 
 const TextRevealByWordComponent: FC<TextRevealByWordComponentProps> = ({
   text,
   scrollYProgress,
+  defaultTextOpacityClassName,
+  animatedTextColorClassName,
 }) => {
   const words = text.split(" ");
 
@@ -122,7 +139,13 @@ const TextRevealByWordComponent: FC<TextRevealByWordComponentProps> = ({
         const start = i / words.length;
         const end = start + 1 / words.length;
         return (
-          <Word key={i} progress={scrollYProgress} range={[start, end]}>
+          <Word
+            key={i}
+            progress={scrollYProgress}
+            range={[start, end]}
+            defaultTextOpacityClassName={defaultTextOpacityClassName}
+            animatedTextColorClassName={animatedTextColorClassName}
+          >
             {word}
           </Word>
         );
