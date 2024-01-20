@@ -3,6 +3,7 @@ import TextRevealByChar from "./components/text-reveal/TextRevealCharacter";
 import TextRevealByWord from "./components/text-reveal/TextRevealWord";
 import TextShimmer from "./components/text-shimmer/TextShimmer";
 import TextRevealComponent from "./components/text-reveal-parts/TextRevealComponent";
+import LineSvgComponent from "./components/svg-line-mask/linesvg";
 export default function App() {
   return (
     <main>
@@ -65,6 +66,8 @@ export default function App() {
       </div>
 
       {/* ====================================================================================================== */}
+
+      <LineSvgComponent />
     </main>
   );
 }
