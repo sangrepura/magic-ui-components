@@ -4,14 +4,14 @@ export default function MaskSvg() {
   return (
     <section className="h-[70vh] flex items-center justify-center p-10">
       <div className="hidden md:flex items-center justify-center p-10 h-full">
-        <div className="bg-[url('../src/assets/integrate.svg')] h-[50vh] w-[500px] bg-contain bg-center bg-no-repeat relative">
+        <div className="bg-[url('../../../integrate.svg')] h-[50vh] w-[500px] bg-contain bg-center bg-no-repeat relative">
           <div className="wrapper absolute top-[105px] left-[65px]">
             <div className="linesync relative h-[50vh] w-[500px]">
               <div
                 className="maskimage z-[1] h-[458px] w-[370px] bg-contain bg-center bg-no-repeat absolute left-0"
                 style={
                   {
-                    "--background-image": `url('../src/assets/firstline.svg')`,
+                    "--background-image": `url('../../../firstline.svg')`,
                   } as React.CSSProperties
                 }
               >
@@ -22,10 +22,10 @@ export default function MaskSvg() {
           <div className="wrapper absolute top-[243px] left-[65px]">
             <div className="linesync relative h-[50vh] w-[500px]">
               <div
-                className="maskimage z-[1] bg-[url('../src/assets/secondline.svg')] h-[458px] w-[370px] bg-contain bg-center bg-no-repeat absolute left-0"
+                className="maskimage z-[1] h-[458px] w-[370px] bg-contain bg-center bg-no-repeat absolute left-0"
                 style={
                   {
-                    "--background-image": `url('../src/assets/secondline.svg')`,
+                    "--background-image": `url('../../../secondline.svg')`,
                   } as React.CSSProperties
                 }
               >
@@ -36,10 +36,10 @@ export default function MaskSvg() {
           <div className="wrapper absolute top-[248px] left-[65px]">
             <div className="linesync relative h-[50vh] w-[500px]">
               <div
-                className="bg-[url('../src/assets/thirdline.svg')] maskimage z-[1] h-[458px] w-[370px] bg-contain bg-center bg-no-repeat absolute left-0"
+                className="maskimage z-[1] h-[458px] w-[370px] bg-contain bg-center bg-no-repeat absolute left-0"
                 style={
                   {
-                    "--background-image": `url('../src/assets/thirdline.svg')`,
+                    "--background-image": `url('../../../thirdline.svg')`,
                   } as React.CSSProperties
                 }
               >
