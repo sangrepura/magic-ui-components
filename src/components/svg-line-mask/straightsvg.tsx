@@ -2,7 +2,7 @@ import "../svg-line-mask/straight.css";
 
 export default function StraightSvg() {
   return (
-    <section className="max-w-sm mx-auto flex items-center justify-center h-[70vh]">
+    <section className="max-w-sm mx-auto flex items-center justify-center h-[70vh] p-5 md:p-0">
       <div className="mastering-card mastering-card-fully max-w-full w-full h-[416px] relative rounded-3xl overflow-hidden border-2 border-[#e4e8ee] bg-[#f6f7fa] p-[32px_40px] flex flex-col flex-end isolate">
         <div className="mastering-fully absolute top-0 left-0 w-[332px] h-full">
           <img
