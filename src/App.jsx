@@ -88,7 +88,7 @@ export default function App() {
         <GsapMask />
       </div>
       <div className="h-[50vh] w-full bg-neutral-900 relative flex flex-col items-center justify-center antialiased">
-        <GradientGsapMask className="my-class" pathData="M10 10 L 500 500" />
+        <GradientGsapMask />
       </div>
     </main>
   );

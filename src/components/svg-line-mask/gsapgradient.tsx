@@ -2,15 +2,10 @@
 
 import React, { useEffect, useRef } from "react";
 import { gsap } from "gsap";
+import { motion } from "framer-motion";
 import { cn } from "../../../lib/utils";
 
-export const GradientGsapMask = ({
-  className,
-  pathData,
-}: {
-  className?: string;
-  pathData: string;
-}) => {
+export const GradientGsapMask = ({ className }: { className?: string }) => {
   const pathRef = useRef<SVGPathElement>(null);
   const gradientRef = useRef<SVGLinearGradientElement>(null);
 
@@ -57,8 +52,15 @@ export const GradientGsapMask = ({
         xmlns="http://www.w3.org/2000/svg"
       >
         <path
+          d="M0 1C175.836 1 143.886 167 462 167"
+          stroke="#ffffff"
+          strokeOpacity="0.05"
+          strokeWidth="1"
+        ></path>
+
+        <path
           ref={pathRef}
-          d={pathData}
+          d="M0 1C175.836 1 143.886 167 462 167"
           stroke="url(#linearGradient)"
           strokeOpacity="0.5"
           strokeWidth="2"
