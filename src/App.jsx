@@ -5,6 +5,9 @@ import TextShimmer from "./components/text-shimmer/TextShimmer";
 import TextRevealComponent from "./components/text-reveal-parts/TextRevealComponent";
 import StraightSvg from "./components/svg-line-mask/straightsvg";
 import MaskSvg from "./components/svg-line-mask/masksvg";
+import { BackgroundBeams } from "./components/background-beams";
+import GsapMask from "./components/svg-line-mask/gsapmask";
+import GradientGsapMask from "./components/svg-line-mask/gsapgradient";
 export default function App() {
   return (
     <main>
@@ -74,6 +77,18 @@ export default function App() {
 
       <div className="bg-neutral-100">
         <StraightSvg />
+      </div>
+
+      {/* ====================================================================================================== */}
+
+      <div className="h-[40rem] w-full rounded-md bg-neutral-950 relative flex flex-col items-center justify-center antialiased">
+        <BackgroundBeams />
+      </div>
+      <div className="h-[50vh] w-full bg-neutral-200 relative flex flex-col items-center justify-center antialiased">
+        <GsapMask />
+      </div>
+      <div className="h-[50vh] w-full bg-neutral-900 relative flex flex-col items-center justify-center antialiased">
+        <GradientGsapMask className="my-class" pathData="M10 10 L 500 500" />
       </div>
     </main>
   );
