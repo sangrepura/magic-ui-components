@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 import { motion } from "framer-motion";
-import { cn } from "../../lib/utils";
+import { cn } from "../../../lib/utils";
 
 export const BackgroundBeams = ({ className }: { className?: string }) => {
   return (
@@ -20,14 +20,14 @@ export const BackgroundBeams = ({ className }: { className?: string }) => {
         xmlns="http://www.w3.org/2000/svg"
       >
         <path
-          d="M0 1C175.836 1 143.886 167 462 167"
+          d="M462 1C143.886 1 174.457 162 0 162"
           stroke="#ffffff"
           strokeOpacity="0.05"
           strokeWidth="2"
         ></path>
 
         <motion.path
-          d="M0 1C175.836 1 143.886 167 462 167"
+          d="M462 1C143.886 1 174.457 162 0 162"
           stroke={`url(#linearGradient)`}
           strokeOpacity="1"
           strokeWidth="2.5"
@@ -49,7 +49,7 @@ export const BackgroundBeams = ({ className }: { className?: string }) => {
             }}
             animate={{
               x1: ["7px", "100%"],
-              x2: ["0%", "93%"],
+              x2: ["0%", "95%"],
               y1: ["0%", "100%"],
               y2: ["0%", `${93 + Math.random() * 8}%`],
             }}

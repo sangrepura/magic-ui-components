@@ -6,7 +6,7 @@ import { useEffect } from "react";
 
 gsap.registerPlugin(MotionPathPlugin);
 
-export default function GsapMask() {
+export default function GsapMotionPathFollowing() {
   useEffect(() => {
     gsap.to(".maskcircle", {
       motionPath: {
