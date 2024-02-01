@@ -250,7 +250,7 @@ export const SvgLineAnimation = ({ className }: { className?: string }) => {
         {/* 4th one */}
 
         <div className="flex flex-row relative items-center justify-center border h-[400px] w-[600px] border-blue-600">
-          <div className="bg-white rounded-full h-12 w-12 absolute top-0 left-0 z-10" />
+          <div className="bg-white rounded-full h-12 w-12 absolute top-0 left-0 z-10"></div>
           <div className="bg-white rounded-full h-12 w-12 absolute left-0 z-10" />
           <div className="bg-white rounded-full h-12 w-12 absolute bottom-0 left-0 z-10" />
 
