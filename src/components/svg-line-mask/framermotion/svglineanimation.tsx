@@ -4,6 +4,11 @@ import { motion } from "framer-motion";
 import { useId } from "react";
 import { cn } from "../../../../lib/utils";
 import ShimmerButton from "../../magicui-components/shimmer-button";
+import chatgptIcon from "../../../../public/chatgpticon.svg";
+import docsIcon from "../../../../public/docsicon.svg";
+import slackIcon from "../../../../public/slackicon.svg";
+import driveIcon from "../../../../public/driveicon.svg";
+import youtubeIcon from "../../../../public/youtubeicon.svg";
 
 const Beam = ({
   className,
@@ -122,12 +127,20 @@ export const SvgLineAnimation = ({ className }: { className?: string }) => {
     >
       <div className="flex flex-col gap-20">
         {/* 1st one */}
-        <div className="flex flex-row relative items-center justify-center border h-[400px] max-w-[400px] w-full mx-auto border-blue-600">
-          <div className="bg-white rounded-full h-10 w-10 absolute top-[6.5rem] left-0 z-10" />
-          <div className="bg-white rounded-full h-10 w-10 absolute left-0 z-10" />
-          <div className="bg-white rounded-full h-10 w-10 absolute bottom-[6.5rem] left-0 z-10" />
+        <div className="flex flex-row relative items-center justify-center border h-[400px] max-w-[400px] w-full mx-auto border-transparent">
+          <div className="bg-white rounded-md h-10 w-10 p-1 shadow-[0_0_50px_-12px_rgba(0,0,0,0.8)] absolute top-[6.5rem] left-0 z-10 flex items-center justify-center">
+            <img className="w-7 h-7" src={youtubeIcon} alt="chatgpt" />
+          </div>
+          <div className="bg-white rounded-md h-10 w-10 p-1 shadow-[0_0_50px_-12px_rgba(0,0,0,0.8)] absolute left-0 z-10 flex items-center justify-center">
+            <img className="w-10 h-10" src={driveIcon} alt="chatgpt" />
+          </div>
+          <div className="bg-white rounded-md h-10 w-10 p-1 shadow-[0_0_50px_-12px_rgba(0,0,0,0.8)] absolute bottom-[6.5rem] left-0 z-10 flex items-center justify-center">
+            <img className="w-10 h-10" src={slackIcon} alt="chatgpt" />
+          </div>
 
-          <div className="z-10 bg-white rounded-full h-10 w-10 absolute inset-0 m-auto" />
+          <div className="z-10 bg-teal-500 rounded-full h-10 w-10 p-1 absolute shadow-[2px_2px_50px_-10px] shadow-teal-800 inset-0 m-auto flex items-center justify-center">
+            <img className="w-7 h-8" src={chatgptIcon} alt="chatgpt" />
+          </div>
 
           <div className="z-10 bg-white rounded-full h-10 w-10 absolute right-0" />
 
