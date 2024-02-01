@@ -224,24 +224,38 @@ export const SvgLineAnimation = ({ className }: { className?: string }) => {
 
         {/* 3rd one */}
 
-        <div className="flex flex-row relative items-center justify-center border h-[300px] max-w-[500px] mx-auto w-full border-blue-600">
+        <div className="flex flex-row relative items-center justify-center border h-[300px] max-w-[500px] mx-auto w-full border-transparent">
           {/* left circle */}
-          <div className="bg-white rounded-full h-20 w-20 absolute left-0 z-10" />
+          <div className="bg-teal-500 shadow-[2px_2px_50px_-10px] shadow-teal-800 backdrop-blur-md rounded-full h-20 w-20 absolute left-0 z-10 flex items-center justify-center">
+            <p className="text-lg text-center text-white">Client</p>
+          </div>
           {/* right circle */}
-          <div className="z-10 bg-white rounded-full h-20 w-20 absolute right-0" />
+          <div className="z-10 bg-blue-500 shadow-[2px_2px_50px_-10px] shadow-blue-800 backdrop-blur-md rounded-full h-20 w-20 absolute right-0 flex items-center justify-center">
+            <p className="text-lg text-center text-white">Server</p>
+          </div>
 
           <Beam
-            className="absolute left-0 top-[150px] stroke-1"
+            className="absolute left-5 top-[150px] stroke-2 -z-10"
             delay={0.4}
             height={50}
-            width={480}
+            width={460}
+            gradientColors={{
+              start: "#E83914",
+              middle: "#CBE814",
+              end: "#1992E3",
+            }}
           />
 
           <Beam
-            className="absolute left-0 bottom-[150px] stroke-1 rotate-180"
+            className="absolute left-5 bottom-[150px] stroke-2 rotate-180 -z-10"
             delay={0.4}
             height={50}
-            width={480}
+            width={460}
+            gradientColors={{
+              start: "#E83914",
+              middle: "#19E3B5",
+              end: "#E319DD",
+            }}
           />
         </div>
 
