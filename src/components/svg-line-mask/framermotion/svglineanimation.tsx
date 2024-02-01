@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { useId } from "react";
 import { cn } from "../../../../lib/utils";
+import ShimmerButton from "../../magicui-components/shimmer-button";
 
 const Beam = ({
   className,
@@ -232,6 +233,49 @@ export const SvgLineAnimation = ({ className }: { className?: string }) => {
           {/* right circle */}
           <div className="z-10 bg-blue-500 shadow-[2px_2px_50px_-10px] shadow-blue-800 backdrop-blur-md rounded-full h-20 w-20 absolute right-0 flex items-center justify-center">
             <p className="text-lg text-center text-white">Server</p>
+          </div>
+
+          <Beam
+            className="absolute left-5 top-[150px] stroke-2 -z-10"
+            delay={0.4}
+            height={50}
+            width={460}
+            gradientColors={{
+              start: "#E83914",
+              middle: "#CBE814",
+              end: "#1992E3",
+            }}
+          />
+
+          <Beam
+            className="absolute left-5 bottom-[150px] stroke-2 rotate-180 -z-10"
+            delay={0.4}
+            height={50}
+            width={460}
+            gradientColors={{
+              start: "#E83914",
+              middle: "#19E3B5",
+              end: "#E319DD",
+            }}
+          />
+        </div>
+
+        <div className="flex flex-row relative items-center justify-center border h-[300px] max-w-[500px] mx-auto w-full border-transparent">
+          {/* left circle */}
+          <div className="bg-teal-500 shadow-[2px_2px_50px_-10px] shadow-teal-800 backdrop-blur-md rounded-full h-20 w-20 absolute left-0 z-10 flex items-center justify-center">
+            <ShimmerButton className="shadow-2xl w-full h-full rounded-full">
+              <span className="whitespace-pre-wrap text-center text-sm font-medium leading-none tracking-tight text-white dark:from-white dark:to-slate-900/10 lg:text-lg">
+                Client
+              </span>
+            </ShimmerButton>
+          </div>
+          {/* right circle */}
+          <div className="z-10 bg-blue-500 shadow-[2px_2px_50px_-10px] shadow-blue-800 backdrop-blur-md rounded-full h-20 w-20 absolute right-0 flex items-center justify-center">
+            <ShimmerButton className="shadow-2xl w-full h-full rounded-full">
+              <span className="whitespace-pre-wrap text-center text-sm font-medium leading-none tracking-tight text-white dark:from-white dark:to-slate-900/10 lg:text-lg">
+                Server
+              </span>
+            </ShimmerButton>
           </div>
 
           <Beam
