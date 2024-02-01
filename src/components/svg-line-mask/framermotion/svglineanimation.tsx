@@ -7,23 +7,32 @@ import { cn } from "../../../../lib/utils";
 const Beam = ({
   className,
   delay,
+  duration,
   width = "500", // Default width
   height = "20", // Default height
   strokeWidth = 2.5, // Default strokeWidth
   orientation = "horizontal", // Default orientation
   customPath,
-  angle = 0,
-  transformOrigin = "left",
+  gradientColors = {
+    // Default gradient colors
+    start: "#18CCFC",
+    middle: "#6344F5",
+    end: "#AE48FF",
+  },
 }: {
   className?: string;
   delay?: number;
+  duration?: number;
   width?: string | number;
   height?: string | number;
   strokeWidth?: number;
   orientation?: "horizontal" | "vertical";
   customPath?: string;
-  angle?: number;
-  transformOrigin?: "left" | "right" | "center";
+  gradientColors?: {
+    start: string;
+    middle: string;
+    end: string;
+  };
 }) => {
   const id = useId();
 
@@ -41,8 +50,8 @@ const Beam = ({
   console.log(dPath);
 
   if (customPath) {
-    width = "100%";
-    height = "100%";
+    width = `${width}`; // Default width
+    height = `${height}`; // Default height
   }
 
   return (
@@ -52,18 +61,13 @@ const Beam = ({
       viewBox={viewBox}
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
-      className={cn("pointer-events-none", className)}
-      style={{
-        transform: `rotate(${angle}deg)`,
-        transformOrigin: transformOrigin,
-      }}
+      className={cn("pointer-events-none stroke-[2.5]", className)}
     >
       {/* Background Line */}
       <path
         d={dPath}
         stroke="#ffffff"
         strokeOpacity="0.05"
-        strokeWidth={strokeWidth}
         strokeLinecap="round"
       />
 
@@ -72,7 +76,6 @@ const Beam = ({
         d={dPath}
         stroke={`url(#${id})`}
         strokeOpacity="1"
-        strokeWidth={strokeWidth}
         strokeLinecap="round"
       />
 
@@ -81,23 +84,27 @@ const Beam = ({
           id={id}
           gradientUnits={"userSpaceOnUse"}
           animate={{
-            x1: orientation === "horizontal" ? ["7%", "107%"] : ["0%", "0%"],
+            x1: orientation === "horizontal" ? ["14px", "107%"] : ["0%", "0%"],
             x2: orientation === "horizontal" ? ["0%", "100%"] : ["0%", "0%"],
-            y1: orientation === "horizontal" ? ["0%", "0%"] : ["7%", "107%"],
+            y1: orientation === "horizontal" ? ["0%", "0%"] : ["14px", "107%"],
             y2: orientation === "horizontal" ? ["0%", "0%"] : ["0%", "100%"],
           }}
           transition={{
             delay,
-            duration: Math.random() * 2 + 1,
-            ease: "easeInOut",
+            duration: duration || Math.random() * 3 + 1,
+            ease: [0.16, 1, 0.3, 1], // https://easings.net/#easeOutExpo
             repeat: Infinity,
             repeatDelay: Math.random() * 2 + 1,
           }}
         >
-          <stop stopColor="#18CCFC" stopOpacity="0"></stop>
-          <stop stopColor="#18CCFC"></stop>
-          <stop offset="32.5%" stopColor="#6344F5"></stop>
-          <stop offset="100%" stopColor="#AE48FF" stopOpacity="0"></stop>
+          <stop stopColor={gradientColors.start} stopOpacity="0"></stop>
+          <stop stopColor={gradientColors.start}></stop>
+          <stop offset="32.5%" stopColor={gradientColors.middle}></stop>
+          <stop
+            offset="100%"
+            stopColor={gradientColors.end}
+            stopOpacity="0"
+          ></stop>
         </motion.linearGradient>
       </defs>
     </svg>
@@ -113,94 +120,190 @@ export const SvgLineAnimation = ({ className }: { className?: string }) => {
       )}
     >
       <div className="flex flex-col gap-20">
-        <div className="flex flex-row relative items-center justify-center border border-red-600 w-auto md:h-[300px] md:w-[300px]">
-          <div className="bg-white rounded-full h-12 w-12 absolute left-0 top-0" />
+        {/* 1st one */}
+        <div className="flex flex-row relative items-center justify-center border h-[400px] max-w-[400px] w-full mx-auto border-blue-600">
+          <div className="bg-white rounded-full h-10 w-10 absolute top-[6.5rem] left-0 z-10" />
+          <div className="bg-white rounded-full h-10 w-10 absolute left-0 z-10" />
+          <div className="bg-white rounded-full h-10 w-10 absolute bottom-[6.5rem] left-0 z-10" />
+
+          <div className="z-10 bg-white rounded-full h-10 w-10 absolute inset-0 m-auto" />
+
+          <div className="z-10 bg-white rounded-full h-10 w-10 absolute right-0" />
+
           <Beam
-            delay={1}
-            strokeWidth={1}
-            customPath="M0 1C175.836 1 143.886 167 462 167"
-          />
-          <div className="bg-white rounded-full h-12 w-12 absolute right-0 botom-0" />
-        </div>
-        <div className="flex flex-row relative items-center justify-center  h-[300px] w-[300px]">
-          <div className="bg-white rounded-full h-12 w-12 absolute top-0 z-10" />
-          <Beam
+            className="absolute top-14 left-0 stroke-[4]"
             delay={0.4}
-            orientation="vertical"
-            strokeWidth={1}
-            height={300}
-            width={"100%"}
+            width={200}
+            height={200}
+            customPath="M0 1C175.836 1 143.886 167 462 167"
+            gradientColors={{
+              start: "#E83914",
+              middle: "#CBE814",
+              end: "#1992E3",
+            }}
           />
-          <div className="bg-white rounded-full h-12 w-12 absolute bottom-0" />
-        </div>
-        <div className="flex flex-row relative items-center justify-center border h-[600px] w-[300px]">
-          <div className="w-full mx-auto flex items-center justify-center">
-            <div className="bg-white rounded-full h-12 w-12 absolute left-0 z-10"></div>
-            <Beam
-              className="absolute left-0 top-0 m-auto -z-10"
-              delay={0.4}
-              orientation="vertical"
-              angle={45}
-              transformOrigin="left"
-              strokeWidth={1}
-              height={180}
-              width={300}
-            />
-            <div className="bg-white rounded-full h-12 w-12 absolute left-auto right-auto z-10" />
-            <Beam
-              className=""
-              delay={0.4}
-              orientation="horizontal"
-              strokeWidth={1}
-              height={50}
-              width={300}
-            />
 
-            <div className="bg-white rounded-full h-12 w-12 absolute right-0 z-10" />
-            <Beam
-              className="absolute right-0 top-0 m-auto -z-10"
-              delay={0.4}
-              orientation="vertical"
-              angle={-45}
-              transformOrigin="right"
-              strokeWidth={1}
-              height={180}
-              width={300}
-            />
-          </div>
+          <Beam
+            className="absolute left-0 stroke-2"
+            delay={0.4}
+            height={50}
+            width={200}
+            gradientColors={{
+              start: "#E83914",
+              middle: "#19E3B5",
+              end: "#E319DD",
+            }}
+          />
 
-          {/*  <div className="flex items-center gap-x-0 justify-center">
-            <Beam
-              delay={0.4}
-              transformOrigin="left"
-              angle={-45}
-              strokeWidth={1}
-              height={350}
-              width={150}
-            />
-            <Beam
-              delay={0.4}
-              transformOrigin="right"
-              angle={45}
-              strokeWidth={1}
-              height={350}
-              width={150}
-            />
-          </div> */}
-          {/*   <div className="bg-white rounded-full h-12 w-12 absolute right-0" /> */}
+          <Beam
+            customPath="M462 1C143.886 1 174.457 162 0 162"
+            className="absolute bottom-14 left-0 stroke-[4]"
+            delay={0.4}
+            width={200}
+            height={202}
+          />
+
+          <Beam
+            className="absolute left-1/2 stroke-2"
+            delay={0.4}
+            height={50}
+            width={200}
+          />
         </div>
-        <div className="flex flex-row relative items-center justify-center border border-red-600 h-[300px] w-[300px]">
-          <div className="bg-white rounded-full h-12 w-12 absolute left-0" />
-          <Beam delay={0.1} strokeWidth={1} />
-          <div className="py-10">
-            <Beam
-              delay={0.1}
-              strokeWidth={1}
-              angle={180}
-              className="absolute right-0 top-0 -z-10"
-            />
-          </div>
-          <div className="bg-white rounded-full h-12 w-12 absolute right-0" />
+
+        {/* ================================================================================================= */}
+
+        {/* 2nd one */}
+        <div className="flex flex-row relative items-center justify-center border h-[400px] w-[600px] border-blue-600">
+          <div className="bg-white rounded-full h-12 w-12 absolute top-0 left-0 z-10" />
+          <div className="bg-white rounded-full h-12 w-12 absolute left-0 z-10" />
+          <div className="bg-white rounded-full h-12 w-12 absolute bottom-0 left-0 z-10" />
+
+          <div className="z-10 bg-white rounded-full h-12 w-12 absolute inset-0 m-auto" />
+
+          <div className="z-10 bg-white rounded-full h-12 w-12 absolute right-0" />
+
+          <Beam
+            className="absolute top-0 left-0 origin-left rotate-[30deg] stroke-2"
+            delay={0.4}
+            width={360}
+            gradientColors={{
+              start: "#E83914",
+              middle: "#CBE814",
+              end: "#1992E3",
+            }}
+          />
+
+          <Beam
+            className="absolute left-0 stroke-2"
+            delay={0.4}
+            height={50}
+            width={300}
+            gradientColors={{
+              start: "#E83914",
+              middle: "#19E3B5",
+              end: "#E319DD",
+            }}
+          />
+
+          <Beam
+            className="absolute bottom-0 left-0 origin-left -rotate-[30deg] stroke-2"
+            delay={0.4}
+            width={360}
+          />
+
+          <Beam
+            className="absolute left-1/2 stroke-2"
+            delay={0.4}
+            height={50}
+            width={300}
+          />
+        </div>
+
+        {/* ================================================================================================= */}
+
+        {/* 3rd one */}
+
+        <div className="flex flex-row relative items-center justify-center border h-[300px] max-w-[500px] mx-auto w-full border-blue-600">
+          {/* left circle */}
+          <div className="bg-white rounded-full h-20 w-20 absolute left-0 z-10" />
+          {/* right circle */}
+          <div className="z-10 bg-white rounded-full h-20 w-20 absolute right-0" />
+
+          <Beam
+            className="absolute left-0 top-[150px] stroke-1"
+            delay={0.4}
+            height={50}
+            width={480}
+          />
+
+          <Beam
+            className="absolute left-0 bottom-[150px] stroke-1 rotate-180"
+            delay={0.4}
+            height={50}
+            width={480}
+          />
+        </div>
+
+        {/* ================================================================================================= */}
+
+        {/* 4th one */}
+
+        <div className="flex flex-row relative items-center justify-center border h-[400px] w-[600px] border-blue-600">
+          <div className="bg-white rounded-full h-12 w-12 absolute top-0 left-0 z-10" />
+          <div className="bg-white rounded-full h-12 w-12 absolute left-0 z-10" />
+          <div className="bg-white rounded-full h-12 w-12 absolute bottom-0 left-0 z-10" />
+
+          <div className="z-10 bg-white rounded-full h-12 w-12 absolute inset-0 m-auto" />
+
+          <div className="bg-white rounded-full h-12 w-12 absolute top-0 right-0 z-10" />
+          <div className="bg-white rounded-full h-12 w-12 absolute right-0 z-10" />
+          <div className="bg-white rounded-full h-12 w-12 absolute bottom-0 right-0 z-10" />
+
+          <Beam
+            className="absolute top-0 left-0 origin-left rotate-[32deg] stroke-1"
+            delay={0.4}
+            width={350}
+          />
+
+          <Beam
+            className="absolute left-0 stroke-1"
+            delay={0.4}
+            height={50}
+            width={300}
+          />
+
+          <Beam
+            className="absolute bottom-0 left-0 origin-left -rotate-[32deg] stroke-1"
+            delay={0.4}
+            width={350}
+          />
+
+          {/*    <Beam
+            className="absolute left-1/2 stroke-1"
+            delay={0.4}
+            height={50}
+            width={300}
+          /> */}
+
+          <Beam
+            className="absolute top-0 right-0 origin-right -rotate-[32deg] stroke-1"
+            delay={0.4}
+            width={350}
+          />
+
+          <Beam
+            className="absolute right-0 stroke-1 rotate-180"
+            delay={0.4}
+            height={50}
+            width={300}
+          />
+
+          <Beam
+            className="absolute bottom-0 right-0 origin-right rotate-[32deg] stroke-1"
+            delay={0.4}
+            width={360}
+          />
         </div>
       </div>
     </div>
