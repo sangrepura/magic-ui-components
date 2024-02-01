@@ -223,7 +223,7 @@ export const SvgLineAnimation = ({ className }: { className?: string }) => {
 
         {/* ================================================================================================= */}
 
-        {/* 3rd one */}
+        {/* 3rd one first */}
 
         <div className="flex flex-row relative items-center justify-center border h-[300px] max-w-[500px] mx-auto w-full border-transparent">
           {/* left circle */}
@@ -260,10 +260,14 @@ export const SvgLineAnimation = ({ className }: { className?: string }) => {
           />
         </div>
 
+        {/* 3rd second first */}
         <div className="flex flex-row relative items-center justify-center border h-[300px] max-w-[500px] mx-auto w-full border-transparent">
           {/* left circle */}
           <div className="bg-teal-500 shadow-[2px_2px_50px_-10px] shadow-teal-800 backdrop-blur-md rounded-full h-20 w-20 absolute left-0 z-10 flex items-center justify-center">
-            <ShimmerButton className="shadow-2xl w-full h-full rounded-full">
+            <ShimmerButton
+              className="shadow-2xl w-full h-full rounded-full"
+              shimmerSize="2px"
+            >
               <span className="whitespace-pre-wrap text-center text-sm font-medium leading-none tracking-tight text-white dark:from-white dark:to-slate-900/10 lg:text-lg">
                 Client
               </span>
@@ -271,7 +275,10 @@ export const SvgLineAnimation = ({ className }: { className?: string }) => {
           </div>
           {/* right circle */}
           <div className="z-10 bg-blue-500 shadow-[2px_2px_50px_-10px] shadow-blue-800 backdrop-blur-md rounded-full h-20 w-20 absolute right-0 flex items-center justify-center">
-            <ShimmerButton className="shadow-2xl w-full h-full rounded-full">
+            <ShimmerButton
+              className="shadow-2xl w-full h-full rounded-full"
+              shimmerSize="2px"
+            >
               <span className="whitespace-pre-wrap text-center text-sm font-medium leading-none tracking-tight text-white dark:from-white dark:to-slate-900/10 lg:text-lg">
                 Server
               </span>
