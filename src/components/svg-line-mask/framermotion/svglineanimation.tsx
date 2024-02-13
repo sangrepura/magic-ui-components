@@ -5,7 +5,6 @@ import { useId } from "react";
 import { cn } from "../../../../lib/utils";
 import ShimmerButton from "../../magicui-components/shimmer-button";
 import chatgptIcon from "../../../../public/chatgpticon.svg";
-import docsIcon from "../../../../public/docsicon.svg";
 import slackIcon from "../../../../public/slackicon.svg";
 import driveIcon from "../../../../public/driveicon.svg";
 import youtubeIcon from "../../../../public/youtubeicon.svg";
