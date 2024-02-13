@@ -10,7 +10,7 @@ import GsapMotionPathFollowing from "./components/svg-line-mask/gsapmotionpath/g
 import GradientGsapMask from "./components/svg-line-mask/gsapgradient";
 import FramerMaskGradient from "./components/svg-line-mask/framermotionmask";
 import { SvgLineAnimation } from "./components/svg-line-mask/framermotion/svglineanimation";
-import HoverAnimationComponent from "./components/listhover/animatedhover";
+import HoverAnimationComponent from "./components/listhover/animatedhoveredlist";
 export default function App() {
   return (
     <main>
