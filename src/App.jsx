@@ -143,6 +143,8 @@ export default function App() {
         </div>
       </div>
 
+      {/* ====================================================================================================== */}
+
       <div className="h-[50vh] bg-lime-500">
         <h2 className="font-bold text-2xl md:text-3xl lg:text-4xl xl:text-5xl flex items-center h-[50vh] justify-center">
           Svg Line Animation with framer motion and props 👇
@@ -154,6 +156,8 @@ export default function App() {
       <div className="h-[50vh] w-full bg-neutral-900 relative flex flex-col items-center justify-center antialiased">
         <HoverAnimationComponent />
       </div>
+
+      {/* ====================================================================================================== */}
     </main>
   );
 }
