@@ -7,17 +7,21 @@ const HoverAnimationComponent = () => {
       y: 0,
       scale: index === 3 ? 0.8 : 1, // Initial scale for the last item is 0.8
       transition: {
-        delay: 0.05, // Delay each item's animation
-        duration: 0.2,
+        delay: 0.075, // Delay each item's animation
+        ease: "easeOut", // Apply an ease out animation
+        type: "spring", // Apply a spring animation
+        duration: 0.25,
       },
     }),
     whileHover: (index: number) => ({
       y: -100, // Move up a bit
       opacity: 1, // Fully opaque
-      scale: index === 0 ? 0.92 : index === 3 ? 1 : 1, // Scale down to 0.8 for the first item, scale to 1 for the last item
+      scale: index === 0 ? 0.95 : index === 3 ? 1 : 1, // Scale down to 0.8 for the first item, scale to 1 for the last item
       transition: {
-        delay: 0.05, // Delay each item's animation
-        duration: 0.2,
+        delay: 0.075, // Delay each item's animation
+        ease: "easeOut", // Apply an ease out animation
+        type: "spring", // Apply a spring animation
+        duration: 0.25,
       },
     }),
   };
@@ -34,7 +38,7 @@ const HoverAnimationComponent = () => {
 
   return (
     <AnimatePresence>
-      <div className="max-w-md w-full relative group bg-gray-500 p-4 rounded-lg">
+      <div className="max-w-lg w-full relative group bg-gray-500 p-4 rounded-lg">
         <motion.div
           className="p-4 bg-gray-800 rounded-md cursor-pointer overflow-hidden h-[304px] group flex flex-col gap-y-3.5"
           variants={containerVariants} // Apply the container variants here
@@ -44,7 +48,7 @@ const HoverAnimationComponent = () => {
           {[...Array(4)].map((_, index) => (
             <motion.div
               key={index}
-              className="p-4 bg-dark border origin-right"
+              className="p-4 bg-dark border origin-right w-[500px]"
               custom={index} // Pass the index as a custom prop
               variants={itemVariants} // Apply the item variants here
             >
