@@ -4,10 +4,10 @@ import { motion } from "framer-motion";
 import { useId } from "react";
 import { cn } from "../../../../lib/utils";
 import ShimmerButton from "../../magicui-components/shimmer-button";
-import chatgptIcon from "../../../../public/chatgpticon.svg";
-import slackIcon from "../../../../public/slackicon.svg";
-import driveIcon from "../../../../public/driveicon.svg";
-import youtubeIcon from "../../../../public/youtubeicon.svg";
+import chatgptIcon from "../../../assets/chatgpticon.svg";
+import slackIcon from "../../../assets/slackicon.svg";
+import driveIcon from "../../../assets/driveicon.svg";
+import youtubeIcon from "../../../assets/youtubeicon.svg";
 
 const Beam = ({
   className,
@@ -50,9 +50,6 @@ const Beam = ({
   const dPath =
     customPath ||
     (orientation === "horizontal" ? `M${width} 1H0` : `M1 ${height}V0`);
-
-  console.log(viewBox);
-  console.log(dPath);
 
   if (customPath) {
     width = `${width}`; // Default width

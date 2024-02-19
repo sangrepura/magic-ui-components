@@ -137,7 +137,7 @@ export default function App() {
       </div>
 
       {/* ====================================================================================================== */}
-      <div className="h-[500vh] w-full bg-neutral-900 relative flex flex-col items-center justify-center ">
+      <div className="h-[1500px] overflow-hidden w-full bg-neutral-900 relative flex flex-col items-center justify-center ">
         <div className="absolute top-0 left-0 right-0 mx-auto">
           <SvgLineAnimation />
         </div>
@@ -146,7 +146,7 @@ export default function App() {
       {/* ====================================================================================================== */}
 
       <div className="h-[50vh] bg-lime-500">
-        <h2 className="font-bold text-2xl md:text-3xl lg:text-4xl xl:text-5xl flex items-center h-[50vh] justify-center">
+        <h2 className="font-bold text-2xl md:text-3xl lg:text-4xl xl:text-5xl flex items-center text-center h-[50vh] justify-center">
           Svg Line Animation with framer motion and props 👇
         </h2>
       </div>
