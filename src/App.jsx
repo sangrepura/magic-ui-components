@@ -11,6 +11,7 @@ import GradientGsapMask from "./components/svg-line-mask/gsapgradient";
 import FramerMaskGradient from "./components/svg-line-mask/framermotionmask";
 import { SvgLineAnimation } from "./components/svg-line-mask/framermotion/svglineanimation";
 import HoverAnimationComponent from "./components/listhover/animatedhoveredlist";
+import GridComponent1 from "./components/bentrogrid/gridcomponent1";
 export default function App() {
   return (
     <main>
@@ -63,18 +64,6 @@ export default function App() {
       {/* ====================================================================================================== */}
 
       <TextRevealComponent text="This is scroll by words. In Chronicle everything is made with Blocks that come with pixel perfect design, interactivity and motion out of the box. Instead of designing from scratch, simply choose the right one from our library of blocks and see the magic unfold." />
-
-      {/* ====================================================================================================== */}
-
-      <div className="h-[50vh] bg-lime-500">
-        <h2 className="font-bold text-2xl md:text-3xl lg:text-4xl xl:text-5xl flex items-center h-[50vh] justify-center">
-          Svg Line animaton with bg image 👇
-        </h2>
-      </div>
-
-      {/* ====================================================================================================== */}
-
-      <MaskSvg />
 
       {/* ====================================================================================================== */}
 
@@ -147,7 +136,7 @@ export default function App() {
 
       <div className="h-[50vh] bg-lime-500">
         <h2 className="font-bold text-2xl md:text-3xl lg:text-4xl xl:text-5xl flex items-center text-center h-[50vh] justify-center">
-          Svg Line Animation with framer motion and props 👇
+          Hover Animated List
         </h2>
       </div>
 
@@ -155,6 +144,20 @@ export default function App() {
 
       <div className="h-[50vh] w-full bg-neutral-900 relative flex flex-col items-center justify-center antialiased">
         <HoverAnimationComponent />
+      </div>
+
+      {/* ====================================================================================================== */}
+
+      <div className="h-[50vh] bg-amber-500">
+        <h2 className="font-bold text-2xl md:text-3xl lg:text-4xl xl:text-5xl flex items-center text-center h-[50vh] justify-center">
+          Bento Grid #1
+        </h2>
+      </div>
+
+      {/* ====================================================================================================== */}
+
+      <div className="h-[50vh] w-full bg-neutral-900 relative flex flex-col items-center justify-center antialiased">
+        <GridComponent1 />
       </div>
 
       {/* ====================================================================================================== */}
