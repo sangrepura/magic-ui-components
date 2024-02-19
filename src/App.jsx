@@ -137,7 +137,7 @@ export default function App() {
       </div>
 
       {/* ====================================================================================================== */}
-      <div className="h-[1500px] overflow-hidden w-full bg-neutral-900 relative flex flex-col items-center justify-center ">
+      <div className=" h-[250vh] overflow-hidden w-full bg-neutral-900 relative flex flex-col items-center justify-center ">
         <div className="absolute top-0 left-0 right-0 mx-auto">
           <SvgLineAnimation />
         </div>
