@@ -10,7 +10,7 @@ interface BentoGridContainerProps {
   className?: string;
 }
 
-const BentoGridContainer: FC<BentoGridContainerProps> = ({
+export const BentoGridContainer: FC<BentoGridContainerProps> = ({
   children,
   className,
 }) => {
@@ -31,7 +31,7 @@ interface BendroGridLayoutProps {
   className?: string;
 }
 
-const BendroGridLayout: FC<BendroGridLayoutProps> = ({
+export const BendroGridLayout: FC<BendroGridLayoutProps> = ({
   children,
   className,
 }) => {
@@ -52,7 +52,10 @@ interface BentoGridImageProps {
   className?: string;
 }
 
-const BentoGridImage: FC<BentoGridImageProps> = ({ children, className }) => {
+export const BentoGridImage: FC<BentoGridImageProps> = ({
+  children,
+  className,
+}) => {
   return (
     <div
       className={cn(
@@ -70,7 +73,7 @@ interface BentoGridContentProps {
   className?: string;
 }
 
-const BentoGridContent: FC<BentoGridContentProps> = ({
+export const BentoGridContent: FC<BentoGridContentProps> = ({
   children,
   className,
 }) => {
@@ -83,9 +86,10 @@ const BentoGridContent: FC<BentoGridContentProps> = ({
   );
 };
 
+// make this copy and pastable to add this whole bentogrid component to another file
 export default function GridComponent5() {
   return (
-    <section className="max-w-5xl mx-auto">
+    <section className="max-w-3xl mx-auto">
       <div className="grid md:grid-cols-2 gap-6">
         {/* 1 */}
         <BentoGridContainer>
