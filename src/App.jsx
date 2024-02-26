@@ -12,6 +12,12 @@ import FramerMaskGradient from "./components/svg-line-mask/framermotionmask";
 import { SvgLineAnimation } from "./components/svg-line-mask/framermotion/svglineanimation";
 import HoverAnimationComponent from "./components/listhover/animatedhoveredlist";
 import GridComponent1 from "./components/bentrogrid/gridcomponent1";
+import GridComponent2 from "./components/bentrogrid/gridcomponent2";
+import GridComponent3 from "./components/bentrogrid/gridcomponent3";
+import GridComponent4 from "./components/bentrogrid/gridcomponent4";
+import GridComponent5 from "./components/bentrogrid/gridcomponent5";
+import GridComponent6 from "./components/bentrogrid/gridcomponent6";
+
 export default function App() {
   return (
     <main>
@@ -161,6 +167,32 @@ export default function App() {
       </div>
 
       {/* ====================================================================================================== */}
+
+      <div className="h-fit w-full bg-neutral-100 relative flex flex-col items-center justify-center antialiased py-20 px-5 lg:px-20">
+        <GridComponent2 />
+      </div>
+
+      {/* ====================================================================================================== */}
+
+      <div className="h-fit w-full bg-neutral-100 relative flex flex-col items-center justify-center antialiased py-20 px-5 lg:px-20">
+        <GridComponent3 />
+      </div>
+
+      {/* ====================================================================================================== */}
+
+      <GridComponent4 />
+
+      {/* ====================================================================================================== */}
+
+      <div className="h-full grid place-content-center overflow-hidden w-full bg-slate-900 antialiased py-20 px-5 lg:px-20 relative">
+        <GridComponent5 />
+      </div>
+
+      {/* ====================================================================================================== */}
+
+      <div className="h-full grid place-content-center overflow-hidden w-full bg-slate-100 antialiased py-20 px-5 lg:px-20 relative">
+        <GridComponent6 />
+      </div>
     </main>
   );
 }
