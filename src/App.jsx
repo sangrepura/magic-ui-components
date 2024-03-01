@@ -148,7 +148,7 @@ export default function App() {
 
       {/* ====================================================================================================== */}
 
-      <div className="h-[50vh] w-full bg-neutral-900 relative flex flex-col items-center justify-center antialiased">
+      <div className="h-[50vh] w-full bg-neutral-50 dark:bg-neutral-900 relative flex flex-col items-center justify-center antialiased">
         <HoverAnimationComponent />
       </div>
 
@@ -174,17 +174,19 @@ export default function App() {
 
       {/* ====================================================================================================== */}
 
-      <div className="h-fit w-full bg-neutral-100 relative flex flex-col items-center justify-center antialiased py-20 px-5 lg:px-20">
+      <div className="h-fit w-full bg-neutral-50 dark:bg-neutral-900 relative flex flex-col items-center justify-center antialiased py-20 px-5 lg:px-20">
         <GridComponent3 />
       </div>
 
       {/* ====================================================================================================== */}
 
-      <GridComponent4 />
+      <div className="h-fit w-full bg-neutral-50 dark:bg-neutral-900 relative flex flex-col items-center justify-center antialiased py-20 px-5 lg:px-20">
+        <GridComponent4 />
+      </div>
 
       {/* ====================================================================================================== */}
 
-      <div className="h-full grid place-content-center overflow-hidden w-full bg-slate-900 antialiased py-20 px-5 lg:px-20 relative">
+      <div className="h-full grid place-content-center overflow-hidden w-full bg-neutral-50 dark:bg-neutral-900 antialiased py-20 px-5 lg:px-20 relative">
         <GridComponent5 />
       </div>
 

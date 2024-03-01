@@ -80,13 +80,13 @@ export default function GridComponent4() {
   }, []);
 
   return (
-    <div className="h-full flex relative gap-y-10 items-center justify-between w-full max-w-4xl mx-auto py-20 px-5 lg:px-20">
-      <div className="flex flex-col gap-y-10 items-center justify-center w-full h-full border border-neutral-700/30 overflow-hidden bg-neutral-800/40 p-10 shadow-lg rounded-2xl ">
+    <div className="h-full flex relative gap-y-10 items-center justify-between w-full max-w-4xl mx-auto py-20 px-5 lg:px-20 ">
+      <div className="flex flex-col gap-y-10 items-center justify-center w-full h-full border border-neutral-200/30 dark:border-neutral-700/30 overflow-hidden bg-transparent p-5 md:p-10 shadow-lg rounded-2xl [box-shadow:0_0_0_1px_rgba(0,0,0,.03),0_2px_4px_rgba(0,0,0,.05),0_12px_24px_rgba(0,0,0,.05)] dark:bg-transparent dark:border-gray-800 dark:[box-shadow:0_-20px_80px_-20px_#ffffff1f_inset] ">
         <div className="flex flex-col gap-y-1.5 items-center justify-center">
-          <h2 className="mx-4 w-full text-lg text-center font-medium text-balance text-neutral-200 md:text-2xl ">
+          <h2 className="mx-4 w-full text-lg text-center font-medium text-balance text-neutral-800 dark:text-neutral-200 md:text-2xl ">
             Generate magical visuals for your designs
           </h2>
-          <p className=" w-full text-base text-center text-balance font-normal text-neutral-200/50 md:text-lg ">
+          <p className=" w-full text-base text-center text-balance font-normal text-neutral-800/50 dark:text-neutral-200/50 md:text-lg ">
             With Magic Image, you can quickly generate images in Figma while you
             design.
           </p>
@@ -106,7 +106,7 @@ export default function GridComponent4() {
             {tilesData.map((tile) => (
               <div
                 key={tile.id}
-                className={`tile first:rotate-[3deg] first:z-[3] [&:nth-child(2)]:rotate-[-2deg] [&:nth-child(3)]:rotate-[5deg] [&:nth-child(2)]:z-[2] [&:nth-child(2)]:-ml-[40px] [&:nth-child(3)]:-ml-[40px] [&:nth-child(3)]:z-[1] shadow-[0px_3px_6px_rgba(0,0,0,0.25),inset_0px_0.5px_1px_rgba(255,255,255,0.15%)] flex items-center justify-center gap-2.5 w-[200px] aspect-square relative overflow-hidden bg-neutral-800 rounded-xl`}
+                className="tile first:rotate-[3deg] first:z-[3] [&:nth-child(2)]:rotate-[-2deg] [&:nth-child(3)]:rotate-[5deg] [&:nth-child(2)]:z-[2] [&:nth-child(2)]:-ml-[40px] [&:nth-child(3)]:-ml-[40px] [&:nth-child(3)]:z-[1] shadow-[0px_3px_6px_rgba(0,0,0,0.25),inset_0px_0.5px_1px_rgba(255,255,255,0.15%)] flex items-center justify-center gap-2.5 w-[200px] aspect-square relative overflow-hidden bg-transparent backdrop-blur-xl rounded-xl [box-shadow:0_0_0_1px_rgba(0,0,0,.03),0_2px_4px_rgba(0,0,0,.05),0_12px_24px_rgba(0,0,0,.05)] dark:bg-transparent dark:border-gray-800 dark:[box-shadow:0_-20px_80px_-20px_#ffffff1f_inset]"
               >
                 <FallbackImage
                   className={`w-20 h-20 flex items-center justify-center ${tile.color}`}

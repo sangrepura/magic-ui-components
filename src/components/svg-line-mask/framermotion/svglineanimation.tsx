@@ -245,7 +245,7 @@ export const SvgLineAnimation = ({ className }: { className?: string }) => {
           </div>
 
           <Beam
-            className="absolute left-5 top-[150px] stroke-2 -z-10"
+            className="absolute left-5 top-[150px] stroke-2"
             delay={0.4}
             height={50}
             width={460}
@@ -257,7 +257,7 @@ export const SvgLineAnimation = ({ className }: { className?: string }) => {
           />
 
           <Beam
-            className="absolute left-5 bottom-[150px] stroke-2 rotate-180 -z-10"
+            className="absolute left-5 bottom-[150px] stroke-2 rotate-180"
             delay={0.4}
             height={50}
             width={460}
@@ -295,7 +295,7 @@ export const SvgLineAnimation = ({ className }: { className?: string }) => {
           </div>
 
           <Beam
-            className="absolute left-5 top-[150px] stroke-2 -z-10"
+            className="absolute left-5 top-[150px] stroke-2"
             delay={0.4}
             height={50}
             width={460}
@@ -307,7 +307,7 @@ export const SvgLineAnimation = ({ className }: { className?: string }) => {
           />
 
           <Beam
-            className="absolute left-5 bottom-[150px] stroke-2 rotate-180 -z-10"
+            className="absolute left-5 bottom-[150px] stroke-2 rotate-180"
             delay={0.4}
             height={50}
             width={460}

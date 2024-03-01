@@ -17,7 +17,7 @@ export const BentoGridContainer: FC<BentoGridContainerProps> = ({
   return (
     <div
       className={cn(
-        "bg-slate-800/20 rounded-xl border border-slate-700/50 p-1 h-fit",
+        "bg-transparent [box-shadow:0_0_0_1px_rgba(0,0,0,.03),0_2px_4px_rgba(0,0,0,.05),0_12px_24px_rgba(0,0,0,.05)] dark:bg-transparent dark:border-gray-800 dark:[box-shadow:0_-20px_80px_-20px_#ffffff1f_inset] rounded-xl border border-slate-200/50 p-1 h-fit",
         className
       )}
     >
@@ -38,7 +38,7 @@ export const BendroGridLayout: FC<BendroGridLayoutProps> = ({
   return (
     <div
       className={cn(
-        "flex flex-col gap-y-5 items-center justify-between h-fit w-full",
+        "flex flex-col gap-y-5 items-center justify-between h-full w-full",
         className
       )}
     >
@@ -59,7 +59,7 @@ export const BentoGridImage: FC<BentoGridImageProps> = ({
   return (
     <div
       className={cn(
-        "w-full h-full bg-slate-800/50 flex items-center justify-center",
+        "w-full h-full bg-transparent border border-neutral-300/50 dark:border-neutral-800 flex items-center justify-center rounded-lg",
         className
       )}
     >
@@ -79,7 +79,7 @@ export const BentoGridContent: FC<BentoGridContentProps> = ({
 }) => {
   return (
     <div
-      className={cn("px-5 py-4 flex flex-col gap-y-1 items-start", className)}
+      className={cn("px-5 pb-4 flex flex-col gap-y-1 items-start", className)}
     >
       {children}
     </div>
@@ -98,10 +98,10 @@ export default function GridComponent5() {
               <FallbackImage className="text-neutral-200/80 w-3/5 h-full" />
             </BentoGridImage>
             <BentoGridContent>
-              <h2 className="font-semibold text-xl text-slate-200">
+              <h2 className="font-semibold text-xl dark:text-neutral-200">
                 No more rehydration or cold storage
               </h2>
-              <p className="text-slate-500 font-normal text-base">
+              <p className="dark:text-neutral-200/50 text-neutral-800 font-normal text-base">
                 Customize retention per source to retain and query everything
                 you want. No need to archive your logs to S3 anymore. Search all
                 your logs anytime
@@ -123,10 +123,10 @@ export default function GridComponent5() {
               <FallbackImage className="text-neutral-200/80 w-3/5 h-full" />
             </BentoGridImage>
             <BentoGridContent>
-              <h2 className="font-semibold text-xl text-slate-200">
+              <h2 className="font-semibold text-xl dark:text-slate-200">
                 No more rehydration or cold storage
               </h2>
-              <p className="text-slate-500 font-normal text-base">
+              <p className="dark:text-neutral-200/50 text-neutral-800 font-normal text-base">
                 Customize retention per source to retain and query everything
                 you want. No need to archive your logs to S3 anymore. Search all
                 your logs anytime
@@ -143,15 +143,15 @@ export default function GridComponent5() {
         </BentoGridContainer>
         {/* 3 */}
         <BentoGridContainer className="md:col-span-2">
-          <BendroGridLayout className="md:flex-row-reverse">
-            <BentoGridImage className="w-full md:w-1/2 rounded-lg">
+          <BendroGridLayout className=" grid grid-cols-2">
+            <BentoGridImage className="w-full rounded-lg order-2">
               <FallbackImage className="text-neutral-200/80 w-3/5 h-full" />
             </BentoGridImage>
-            <BentoGridContent className="w-full md:w-1/2 px-5 md:px-10 flex flex-col gap-y-1 items-start justify-center">
-              <h2 className="font-semibold text-xl text-slate-200">
+            <BentoGridContent className="w-full px-5 py-6 md:px-10 flex flex-col gap-y-1 items-start justify-center">
+              <h2 className="font-semibold text-xl dark:text-slate-200">
                 No more rehydration or cold storage
               </h2>
-              <p className="text-slate-500 font-normal text-base">
+              <p className="dark:text-neutral-200/50 text-neutral-800 font-normal text-base">
                 Customize retention per source to retain and query everything
                 you want. No need to archive your logs to S3 anymore. Search all
                 your logs anytime
