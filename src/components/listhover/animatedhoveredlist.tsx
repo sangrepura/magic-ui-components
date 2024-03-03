@@ -67,7 +67,7 @@ const HoverAnimationComponent = () => {
         {texts.map((text, index) => (
           <motion.div
             key={text.id}
-            className="p-4 bg-transparent backdrop-blur-md shadow-[0px_0px_40px_-25px_rgba(0,0,0,0.25)] border-[0.17em] border-orange-300 dark:border-neutral-500/50 origin-right w-[500px] rounded-md"
+            className="p-4 bg-transparent backdrop-blur-md  shadow-[0px_0px_40px_-25px_rgba(0,0,0,0.25)] border-[0.17em] border-orange-300 dark:border-neutral-500/50 origin-right w-[500px] rounded-md"
             custom={index}
             variants={itemVariants}
           >

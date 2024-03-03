@@ -59,7 +59,7 @@ export const BentoGridImage: FC<BentoGridImageProps> = ({
   return (
     <div
       className={cn(
-        "w-full h-full bg-transparent border border-neutral-300/50 dark:border-neutral-800 flex items-center justify-center rounded-lg",
+        "w-full h-full bg-transparent flex items-center justify-center",
         className
       )}
     >
@@ -143,15 +143,15 @@ export default function GridComponent5() {
         </BentoGridContainer>
         {/* 3 */}
         <BentoGridContainer className="md:col-span-2">
-          <BendroGridLayout className=" grid grid-cols-2">
-            <BentoGridImage className="w-full rounded-lg order-2">
+          <BendroGridLayout className=" grid lg:grid-cols-2">
+            <BentoGridImage className="w-full rounded-lg lg:order-2">
               <FallbackImage className="text-neutral-200/80 w-3/5 h-full" />
             </BentoGridImage>
             <BentoGridContent className="w-full px-5 py-6 md:px-10 flex flex-col gap-y-1 items-start justify-center">
               <h2 className="font-semibold text-xl dark:text-slate-200">
                 No more rehydration or cold storage
               </h2>
-              <p className="dark:text-neutral-200/50 text-neutral-800 font-normal text-base">
+              <p className="dark:text-neutral-200/50 text-neutral-800 fomint-normal text-base">
                 Customize retention per source to retain and query everything
                 you want. No need to archive your logs to S3 anymore. Search all
                 your logs anytime
