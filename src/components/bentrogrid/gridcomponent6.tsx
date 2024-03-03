@@ -972,7 +972,7 @@ export default function GridComponent6() {
                 whileHover="whileHover"
                 className="w-full h-full cursor-pointer flex group  flex-col items-center justify-center gap-y-1 overflow-hidden rounded-t-xl border-b border-slate-200/50 dark:border-neutral-800"
               >
-                <div className="py-0 px-10 flex flex-col gap-y-2 items-center justify-center relative">
+                <div className="py-20 lg:py-0 px-10 flex flex-col gap-y-2 items-center justify-center relative">
                   <motion.div
                     variants={seventhBentoItemOneVariants}
                     className="group-hover:bg-white group-hover:dark:bg-neutral-800 w-full h-full p-4 rounded-xl border shadow-[0px_0px_40px_-25px_rgba(0,0,0,0.25)] border-slate-300/50 dark:border-neutral-400/30"
