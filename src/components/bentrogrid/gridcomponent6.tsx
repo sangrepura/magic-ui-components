@@ -577,15 +577,15 @@ export default function GridComponent6() {
     <section className="max-w-6xl mx-auto flex items-center justify-center">
       <div className="grid md:grid-cols-2 min-[1170px]:grid-cols-3 gap-6 h-full">
         {/* 1 */}
-        <BentoGridContainer className="p-0 h-full ">
-          <BendroGridLayout>
-            <BentoGridImage className="border-0">
-              <motion.div
-                variants={containerVariants}
-                initial="initial"
-                whileHover="whileHover"
-                className="w-full h-full flex items-center justify-center rounded-t-xl border-b border-slate-200/50 dark:border-neutral-800"
-              >
+        <div className="p-0 h-full  bg-transparent [box-shadow:0_0_0_1px_rgba(0,0,0,.03),0_2px_4px_rgba(0,0,0,.05),0_12px_24px_rgba(0,0,0,.05)] dark:bg-transparent dark:border-gray-800 dark:[box-shadow:0_-20px_80px_-20px_#ffffff1f_inset] rounded-xl border border-slate-200/50">
+          <motion.div
+            variants={containerVariants}
+            initial="initial"
+            whileHover="whileHover"
+            className="flex flex-col gap-y-5 items-center justify-between h-full w-full cursor-pointer"
+          >
+            <div className="border-0 w-full h-full bg-transparent flex items-center justify-center">
+              <div className="w-full h-full flex items-center justify-center rounded-t-xl">
                 <div className="flex flex-col items-eenter justify-center gap-y-2 p-10 cursor-pointer relative">
                   <motion.div
                     variants={firstBentoItemOneVariants}
@@ -640,9 +640,9 @@ export default function GridComponent6() {
                     </div>
                   </motion.div>
                 </div>
-              </motion.div>
-            </BentoGridImage>
-            <BentoGridContent>
+              </div>
+            </div>
+            <div className="px-5 pb-4 flex flex-col gap-y-1 items-start">
               <div className="flex flex-col gap-y-1 items-start">
                 <h2 className="font-semibold text-xl">
                   Write & schedule, effortlessly
@@ -652,9 +652,9 @@ export default function GridComponent6() {
                   creators.
                 </p>
               </div>
-            </BentoGridContent>
-          </BendroGridLayout>
-        </BentoGridContainer>
+            </div>
+          </motion.div>
+        </div>
         {/* 2 */}
         <BentoGridContainer className="p-0 h-full border-0">
           <BendroGridLayout className="border-0">
