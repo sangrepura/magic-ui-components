@@ -63,9 +63,9 @@ export default function StickyHeader() {
               <motion.div
                 initial={{ x: 0 }}
                 animate={{
-                  border: scrollY >= 150 ? "1px solid white" : "none",
+                  border: scrollY >= 120 ? "1px solid white" : "none",
                 }}
-                style={{ border: scrollY >= 150 ? "1px solid white" : "none" }}
+                style={{ border: scrollY >= 120 ? "1px solid white" : "none" }}
                 className=" w-auto h-12 flex items-center justify-center gap-x-5 py-1 pr-1 pl-4 rounded-full overflow-hidden bg-white dark:bg-neutral-900"
               >
                 <li>Home</li>
@@ -75,13 +75,13 @@ export default function StickyHeader() {
                 <motion.li
                   initial={{ x: "100%" }}
                   animate={{
-                    x: scrollY >= 150 ? "0" : "100%",
-                    opacity: scrollY >= 150 ? 1 : 0,
-                    width: scrollY >= 150 ? "auto" : 0,
-                    backgroundColor: scrollY >= 150 ? "white" : "transparent",
-                    borderRadius: scrollY >= 150 ? "100px" : "0%",
-                    padding: scrollY >= 150 ? "0.5rem 1rem" : "0",
-                    color: scrollY >= 150 ? "black" : "white",
+                    x: scrollY >= 120 ? "0" : "100%",
+                    opacity: scrollY >= 120 ? 1 : 0,
+                    width: scrollY >= 120 ? "auto" : 0,
+                    backgroundColor: scrollY >= 120 ? "white" : "transparent",
+                    borderRadius: scrollY >= 120 ? "100px" : "0%",
+                    padding: scrollY >= 120 ? "0.5rem 1rem" : "0",
+                    color: scrollY >= 120 ? "black" : "white",
                     transition: {
                       delay: 0.05,
                       duration: 0.2,
