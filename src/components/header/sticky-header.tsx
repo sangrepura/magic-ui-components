@@ -7,7 +7,6 @@ export default function StickyHeader() {
   const [scrollY, setScrollY] = useState(0);
   const fixedNavRef = useRef<HTMLElement>(null);
   const { theme } = useTheme();
-  console.log(theme);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -34,51 +33,57 @@ export default function StickyHeader() {
               <motion.div
                 initial={{ x: 0 }}
                 animate={{
-                  border:
+                  boxShadow:
                     scrollY >= 120
-                      ? `1px solid ${theme === "dark" ? "white" : "black"}`
+                      ? theme === "dark"
+                        ? "0 0 0 1px rgba(255,255,255,.08), 0 1px 2px -1px rgba(255,255,255,.08), 0 2px 4px rgba(255,255,255,.04)"
+                        : "0 0 0 1px rgba(17,24,28,.08), 0 1px 2px -1px rgba(17,24,28,.08), 0 2px 4px rgba(17,24,28,.04)"
                       : "none",
-                  transition: {
-                    type: "spring",
-                    duration: 0.2,
-                    ease: "easeInOut",
-                  },
                 }}
-                className=" w-auto h-12 flex items-center border border-white justify-center gap-x-5 py-1 pr-1 pl-4 rounded-full overflow-hidden bg-white dark:bg-neutral-900"
+                transition={{
+                  duration: 0.05,
+                  ease: "linear",
+                }}
+                className="md:p-1.5 md:py-2 py-2.5 px-6 w-auto h-12 flex items-center justify-center gap-x-5 rounded-full overflow-hidden bg-white dark:bg-neutral-900 transition-all"
               >
-                <li>Home</li>
-                <li>About</li>
-                <li>Services</li>
-                <li>Contact</li>
-                <motion.li
-                  initial={{ x: "100%" }}
-                  animate={{
-                    x: scrollY >= 120 ? "0" : "100%",
-                    opacity: scrollY >= 120 ? 1 : 0,
-                    width: scrollY >= 120 ? "auto" : 0,
-                    backgroundColor:
-                      scrollY >= 120
-                        ? theme === "dark"
-                          ? "white"
-                          : "black"
-                        : "transparent",
-                    borderRadius: scrollY >= 120 ? "100px" : "0%",
-                    padding: scrollY >= 120 ? "0.5rem 1rem" : "0",
-                    color:
-                      scrollY >= 120
-                        ? theme === "dark"
-                          ? "black"
-                          : "white"
-                        : "white",
-                    transition: {
-                      type: "tween",
-                      duration: 0.15,
-                      ease: "circOut",
-                    },
-                  }}
-                >
-                  Download
-                </motion.li>
+                <div className="relative flex items-center justify-between">
+                  <div className="flex items-center gap-5">
+                    <nav className="h-full hidden md:block">
+                      <ul className="h-full flex flex-col md:flex-row justify-center md:justify-start gap-6 md:gap-0 lg:gap-1">
+                        <li className="px-[0.75rem] py-[0.375rem]">Home</li>
+                        <li className="px-[0.75rem] py-[0.375rem]">About</li>
+                        <li className="px-[0.75rem] py-[0.375rem]">Services</li>
+                        <li className="px-[0.75rem] py-[0.375rem]">Contact</li>
+                      </ul>
+                    </nav>
+                    <motion.div
+                      initial={{ width: 0 }}
+                      animate={{
+                        width: scrollY >= 120 ? "auto" : 0,
+                      }}
+                      transition={{
+                        duration: 0.2,
+                        ease: "linear",
+                      }}
+                      className="!hidden md:!block rounded-full overflow-hidden"
+                    >
+                      <ul className=" shrink-0 whitespace-nowrap">
+                        <li>
+                          <motion.a
+                            initial={{ x: 0 }}
+                            animate={{
+                              x: scrollY >= 120 ? "0" : "125%",
+                            }}
+                            href="#"
+                            className="transition-fg relative inline-flex w-fit items-center justify-center overflow-hidden outline-none bg-black dark:bg-white text-white dark:text-black gap-x-1.5 px-3 py-1.5 rounded-full"
+                          >
+                            <span data-sb-field-path=".label">Get Started</span>
+                          </motion.a>
+                        </li>
+                      </ul>
+                    </motion.div>
+                  </div>
+                </div>
               </motion.div>
             </ul>
           </div>
