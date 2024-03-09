@@ -1,4 +1,4 @@
-import { motion, cubicBezier, useInView, useScroll } from "framer-motion";
+import { motion, MotionConfig } from "framer-motion";
 import React, { useState, useEffect, useRef } from "react";
 import { ModeToggle } from "../mode-toggle";
 import { useTheme } from "../theme-provider";
@@ -7,6 +7,7 @@ export default function StickyHeader() {
   const [scrollY, setScrollY] = useState(0);
   const fixedNavRef = useRef<HTMLElement>(null);
   const { theme } = useTheme();
+  const [active, setActive] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -21,14 +22,14 @@ export default function StickyHeader() {
   }, []);
 
   return (
-    <div className="h-[500vh] w-full bg-neutral-50 dark:bg-neutral-900">
+    <div className="h-[500vh] w-full bg-white dark:bg-neutral-900">
       <nav
         ref={fixedNavRef}
-        className=" bg-white dark:bg-neutral-900 py-7 border-t border-b"
+        className=" bg-white dark:bg-neutral-900 py-7 px-10 xl:px-0"
       >
         <section className="max-w-5xl mx-auto flex items-center justify-between relative">
           <h1>Logo</h1>
-          <div>
+          <div className="menu hidden md:block">
             <ul className="flex items-center gap-x-5 fixed top-4 left-4 right-4 z-[60] justify-center">
               <motion.div
                 initial={{ x: 0 }}
@@ -77,7 +78,7 @@ export default function StickyHeader() {
                         <li>
                           <a
                             href="#"
-                            className="transition-fg relative inline-flex w-fit items-center justify-center overflow-hidden outline-none bg-black dark:bg-white text-white dark:text-black gap-x-1.5 px-3 py-1.5 rounded-full"
+                            className="transition-fg relative inline-flex w-fit items-center justify-center overflow-hidden outline-none bg-neutral-900 dark:bg-white text-white dark:text-black gap-x-1.5 px-3 py-1.5 rounded-full"
                           >
                             <span data-sb-field-path=".label">Get Started</span>
                           </a>
@@ -89,10 +90,59 @@ export default function StickyHeader() {
               </motion.div>
             </ul>
           </div>
-          <div className="z-[999] flex items-center gap-x-5">
+          <div className="z-[999] items-center gap-x-5 hidden md:flex">
             <button>Get Started</button>
             <ModeToggle />
           </div>
+          <MotionConfig transition={{ duration: 0.3, ease: "easeInOut" }}>
+            <motion.button
+              onClick={() => setActive((prev) => !prev)}
+              animate={active ? "open" : "close"}
+              className="relative h-10 w-10 rounded-md flex items-center justify-center md:hidden"
+            >
+              <motion.span
+                style={{ left: "50%", top: "35%", x: "-50%", y: "-50%" }}
+                className="absolute h-0.5 w-6 bg-black dark:bg-white"
+                variants={{
+                  open: {
+                    rotate: ["0deg", "0deg", "45deg"],
+                    top: ["35%", "50%", "50%"],
+                  },
+                  close: {
+                    rotate: ["45deg", "0deg", "0deg"],
+                    top: ["50%", "50%", "35%"],
+                  },
+                }}
+                transition={{ duration: 0.3 }}
+              ></motion.span>
+              <motion.span
+                style={{ left: "50%", top: "50%", x: "-50%", y: "-50%" }}
+                className="absolute h-0.5 w-6 bg-black dark:bg-white"
+                variants={{
+                  open: {
+                    opacity: 0,
+                  },
+                  close: {
+                    opacity: 1,
+                  },
+                }}
+              ></motion.span>
+              <motion.span
+                style={{ left: "50%", bottom: "30%", x: "-50%", y: "-50%" }}
+                className="absolute h-0.5 w-6 bg-black dark:bg-white"
+                variants={{
+                  open: {
+                    rotate: ["0deg", "0deg", "-45deg"],
+                    top: ["65%", "50%", "50%"],
+                  },
+                  close: {
+                    rotate: ["-45deg", "0deg", "0deg"],
+                    top: ["50%", "50%", "65%"],
+                  },
+                }}
+              ></motion.span>
+            </motion.button>
+          </MotionConfig>
         </section>
       </nav>
     </div>
