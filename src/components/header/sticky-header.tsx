@@ -41,8 +41,8 @@ export default function StickyHeader() {
                       : "none",
                 }}
                 transition={{
-                  duration: 0.05,
                   ease: "linear",
+                  duration: 0.1,
                 }}
                 className="md:p-1.5 md:py-2 py-2.5 px-6 w-auto h-12 flex items-center justify-center gap-x-5 rounded-full overflow-hidden bg-white dark:bg-neutral-900 transition-all"
               >
@@ -62,25 +62,27 @@ export default function StickyHeader() {
                         width: scrollY >= 120 ? "auto" : 0,
                       }}
                       transition={{
-                        duration: 0.2,
                         ease: "linear",
+                        duration: 0.1,
                       }}
                       className="!hidden md:!block rounded-full overflow-hidden"
                     >
-                      <ul className=" shrink-0 whitespace-nowrap">
+                      <motion.ul
+                        initial={{ x: 0 }}
+                        animate={{
+                          x: scrollY >= 120 ? "0" : "125%",
+                        }}
+                        className=" shrink-0 whitespace-nowrap"
+                      >
                         <li>
-                          <motion.a
-                            initial={{ x: 0 }}
-                            animate={{
-                              x: scrollY >= 120 ? "0" : "125%",
-                            }}
+                          <a
                             href="#"
                             className="transition-fg relative inline-flex w-fit items-center justify-center overflow-hidden outline-none bg-black dark:bg-white text-white dark:text-black gap-x-1.5 px-3 py-1.5 rounded-full"
                           >
                             <span data-sb-field-path=".label">Get Started</span>
-                          </motion.a>
+                          </a>
                         </li>
-                      </ul>
+                      </motion.ul>
                     </motion.div>
                   </div>
                 </div>
