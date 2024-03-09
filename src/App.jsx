@@ -19,12 +19,13 @@ import GridComponent6 from "./components/bentrogrid/gridcomponent6";
 import StickyHeader from "./components/header/sticky-header";
 import Homepage from "./components/homepage/homepage";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Page2 from "./components/page-2/app";
 
 export default function App() {
   return (
     <Routes>
       <Route path="/" element={<Homepage />} />
-      <Route path="/header" element={<StickyHeader />} />
+      <Route path="/page2" element={<Page2 />} />
     </Routes>
   );
 }
