@@ -43,7 +43,8 @@ export default function StickyHeader() {
                 }}
                 transition={{
                   ease: "linear",
-                  duration: 0.1,
+                  duration: 0.05,
+                  delay: 0.05,
                 }}
                 className="md:p-1.5 md:py-2 py-2.5 px-6 w-auto h-12 flex items-center justify-center gap-x-5 rounded-full overflow-hidden bg-white dark:bg-neutral-900 transition-all"
               >
@@ -64,7 +65,8 @@ export default function StickyHeader() {
                       }}
                       transition={{
                         ease: "linear",
-                        duration: 0.1,
+                        duration: 0.25,
+                        delay: 0.05,
                       }}
                       className="!hidden md:!block rounded-full overflow-hidden"
                     >
