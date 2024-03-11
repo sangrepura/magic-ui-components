@@ -16,7 +16,7 @@ import GridComponent3 from "../../components/bentrogrid/gridcomponent3";
 import GridComponent4 from "../../components/bentrogrid/gridcomponent4";
 import GridComponent5 from "../../components/bentrogrid/gridcomponent5";
 import GridComponent6 from "../../components/bentrogrid/gridcomponent6";
-import StickyHeader from "../../components/header/sticky-header";
+import GHubCard from "../ghubcard/ghubcard";
 import Navbar from "../navbar";
 
 export default function Homepage() {
@@ -202,6 +202,10 @@ export default function Homepage() {
       </div>
 
       {/* ====================================================================================================== */}
+
+      <div className="h-full grid place-content-center overflow-hidden w-full bg-neutral-50 dark:bg-neutral-900 antialiased py-20 px-5 lg:px-20">
+        <GHubCard />
+      </div>
     </main>
   );
 }
