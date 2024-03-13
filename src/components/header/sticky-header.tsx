@@ -21,85 +21,80 @@ export default function StickyHeader() {
     };
   }, []);
 
+  /* chenge the nav to header and remove unncessary elements as much as you can */
   return (
-    <nav
+    <header
       ref={fixedNavRef}
       className=" bg-white dark:bg-neutral-900 py-7 px-10 xl:px-0"
     >
       <section className="max-w-5xl mx-auto flex items-center justify-between relative">
         <h1>Logo</h1>
-        <div className="menu hidden md:block">
-          <ul className="flex items-center gap-x-5 fixed top-4 left-4 right-4 z-[60] justify-center">
+
+        <ul className="md:flex items-center gap-x-5 fixed top-4 left-4 right-4 z-[60] justify-center hidden">
+          <motion.div
+            initial={{ x: 0 }}
+            animate={{
+              boxShadow:
+                scrollY >= 120
+                  ? theme === "dark"
+                    ? "0 0 0 1px rgba(255,255,255,.08), 0 1px 2px -1px rgba(255,255,255,.08), 0 2px 4px rgba(255,255,255,.04)"
+                    : "0 0 0 1px rgba(17,24,28,.08), 0 1px 2px -1px rgba(17,24,28,.08), 0 2px 4px rgba(17,24,28,.04)"
+                  : "none",
+            }}
+            transition={{
+              ease: "linear",
+              duration: 0.05,
+              delay: 0.05,
+            }}
+            className="md:p-1.5 md:py-2 py-2.5 px-6 w-auto h-12 flex items-center justify-center gap-x-5 rounded-full overflow-hidden bg-white dark:bg-neutral-900 transition-all"
+          >
+            <nav className="h-full hidden md:flex relative items-center justify-between gap-x-3.5">
+              <ul className="h-full flex flex-col md:flex-row justify-center md:justify-start gap-6 md:gap-0 lg:gap-1">
+                <li className="px-[0.75rem] py-[0.375rem]">Home</li>
+                <li className="px-[0.75rem] py-[0.375rem]">About</li>
+                <li className="px-[0.75rem] py-[0.375rem]">Services</li>
+                <li className="px-[0.75rem] py-[0.375rem]">Contact</li>
+              </ul>
+            </nav>
             <motion.div
-              initial={{ x: 0 }}
+              initial={{ width: 0 }}
               animate={{
-                boxShadow:
-                  scrollY >= 120
-                    ? theme === "dark"
-                      ? "0 0 0 1px rgba(255,255,255,.08), 0 1px 2px -1px rgba(255,255,255,.08), 0 2px 4px rgba(255,255,255,.04)"
-                      : "0 0 0 1px rgba(17,24,28,.08), 0 1px 2px -1px rgba(17,24,28,.08), 0 2px 4px rgba(17,24,28,.04)"
-                    : "none",
+                width: scrollY >= 120 ? "auto" : 0,
               }}
               transition={{
                 ease: "linear",
-                duration: 0.05,
+                duration: 0.25,
                 delay: 0.05,
               }}
-              className="md:p-1.5 md:py-2 py-2.5 px-6 w-auto h-12 flex items-center justify-center gap-x-5 rounded-full overflow-hidden bg-white dark:bg-neutral-900 transition-all"
+              className="!hidden md:!block rounded-full overflow-hidden"
             >
-              <div className="relative flex items-center justify-between">
-                <div className="flex items-center gap-5">
-                  <nav className="h-full hidden md:block">
-                    <ul className="h-full flex flex-col md:flex-row justify-center md:justify-start gap-6 md:gap-0 lg:gap-1">
-                      <li className="px-[0.75rem] py-[0.375rem]">Home</li>
-                      <li className="px-[0.75rem] py-[0.375rem]">About</li>
-                      <li className="px-[0.75rem] py-[0.375rem]">Services</li>
-                      <li className="px-[0.75rem] py-[0.375rem]">Contact</li>
-                    </ul>
-                  </nav>
-                  <motion.div
-                    initial={{ width: 0 }}
-                    animate={{
-                      width: scrollY >= 120 ? "auto" : 0,
+              <AnimatePresence>
+                {scrollY >= 120 && (
+                  <motion.ul
+                    initial={{ x: "125%" }}
+                    animate={{ x: "0" }}
+                    exit={{
+                      x: "125%",
+                      transition: { ease: "linear", duration: 1 },
                     }}
-                    transition={{
-                      ease: "linear",
-                      duration: 0.25,
-                      delay: 0.05,
-                    }}
-                    className="!hidden md:!block rounded-full overflow-hidden"
+                    transition={{ ease: "linear", duration: 0.3 }}
+                    className="shrink-0 whitespace-nowrap"
                   >
-                    <AnimatePresence>
-                      {scrollY >= 120 && (
-                        <motion.ul
-                          initial={{ x: "125%" }}
-                          animate={{ x: "0" }}
-                          exit={{
-                            x: "125%",
-                            transition: { ease: "linear", duration: 1 },
-                          }}
-                          transition={{ ease: "linear", duration: 0.3 }}
-                          className="shrink-0 whitespace-nowrap"
-                        >
-                          <li>
-                            <a
-                              href="#"
-                              className="transition-fg relative inline-flex w-fit items-center justify-center overflow-hidden outline-none bg-neutral-900 dark:bg-white text-white dark:text-black gap-x-1.5 px-3 py-1.5 rounded-full"
-                            >
-                              <span data-sb-field-path=".label">
-                                Get Started
-                              </span>
-                            </a>
-                          </li>
-                        </motion.ul>
-                      )}
-                    </AnimatePresence>
-                  </motion.div>
-                </div>
-              </div>
+                    <li>
+                      <a
+                        href="#"
+                        className="transition-fg relative inline-flex w-fit items-center justify-center overflow-hidden outline-none bg-neutral-900 dark:bg-white text-white dark:text-black gap-x-1.5 px-3 py-1.5 rounded-full"
+                      >
+                        <span data-sb-field-path=".label">Get Started</span>
+                      </a>
+                    </li>
+                  </motion.ul>
+                )}
+              </AnimatePresence>
             </motion.div>
-          </ul>
-        </div>
+          </motion.div>
+        </ul>
+
         <div className="z-[999] items-center gap-x-5 hidden md:flex">
           <button>Get Started</button>
           <ModeToggle />
@@ -154,6 +149,6 @@ export default function StickyHeader() {
           </motion.button>
         </MotionConfig>
       </section>
-    </nav>
+    </header>
   );
 }

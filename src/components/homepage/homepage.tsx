@@ -203,7 +203,7 @@ export default function Homepage() {
 
       {/* ====================================================================================================== */}
 
-      <div className="h-full grid place-content-center overflow-hidden w-full bg-neutral-50 dark:bg-neutral-900 antialiased py-20 px-5 lg:px-20">
+      <div className="grid place-content-center overflow-hidden w-full bg-neutral-50 dark:bg-neutral-900 antialiased py-20 px-5 lg:px-20">
         <GHubCard />
       </div>
     </main>
