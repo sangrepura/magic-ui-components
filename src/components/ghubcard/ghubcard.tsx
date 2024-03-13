@@ -202,18 +202,16 @@ const FeatureCard3 = () => {
 
   return (
     <div className="flex flex-col gap-5 md:flex-row items-center justify-between h-full rounded-lg border border-neutral-200 [box-shadow:0_0_0_1px_rgba(0,0,0,.03),0_2px_4px_rgba(0,0,0,.05),0_12px_24px_rgba(0,0,0,.05)] transform-gpu dark:bg-transparent dark:backdrop-blur-md dark:[border:1px_solid_rgba(255,255,255,.1)] dark:[box-shadow:0_-20px_80px_-20px_#ffffff1f_inset]">
-      <div className="w-full md:w-1/2 p-10 md:h-full">
-        <div className="md:h-full flex flex-col gap-y-10 items-start justify-between">
-          <h2 className="text-3xl font-bold">
-            Github Sponsors lets you support your favorite open source projects
-          </h2>
-          <a
-            href="#"
-            className="text-blue-500 font-bold hover:underline transition-all underline-offset-4"
-          >
-            Invest with Github Sponsors
-          </a>
-        </div>
+      <div className="w-full md:w-1/2 p-10 md:h-full flex flex-col gap-y-10 items-start justify-between">
+        <h2 className="text-3xl font-bold">
+          Github Sponsors lets you support your favorite open source projects
+        </h2>
+        <a
+          href="#"
+          className="text-blue-500 font-bold hover:underline transition-all underline-offset-4"
+        >
+          Invest with Github Sponsors
+        </a>
       </div>
       <div className="w-full md:w-1/2 overflow-hidden right__container [-webkit-mask-image:linear-gradient(to_bottom,transparent_10%,black_35%);] md:[-webkit-mask-image:none;]">
         <div
