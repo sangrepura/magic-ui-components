@@ -21,7 +21,6 @@ export default function StickyHeader() {
     };
   }, []);
 
-  /* chenge the nav to header and remove unncessary elements as much as you can */
   return (
     <header
       ref={fixedNavRef}
@@ -83,7 +82,7 @@ export default function StickyHeader() {
                     <li>
                       <a
                         href="#"
-                        className="transition-fg relative inline-flex w-fit items-center justify-center overflow-hidden outline-none bg-neutral-900 dark:bg-white text-white dark:text-black gap-x-1.5 px-3 py-1.5 rounded-full"
+                        className="relative inline-flex w-fit items-center justify-center overflow-hidden outline-none bg-neutral-900 dark:bg-white text-white dark:text-black gap-x-1.5 px-3 py-1.5 rounded-full"
                       >
                         <span data-sb-field-path=".label">Get Started</span>
                       </a>

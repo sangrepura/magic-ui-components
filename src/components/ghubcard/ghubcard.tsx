@@ -88,7 +88,7 @@ const FeatureCard1 = () => {
   return (
     <div
       ref={firstBoxRef}
-      className="rounded-lg border border-neutral-200 [box-shadow:0_0_0_1px_rgba(0,0,0,.03),0_2px_4px_rgba(0,0,0,.05),0_12px_24px_rgba(0,0,0,.05)] transform-gpu dark:bg-transparent dark:backdrop-blur-md dark:[border:1px_solid_rgba(255,255,255,.1)] dark:[box-shadow:0_-20px_80px_-20px_#ffffff1f_inset] p-10 pb-0 overflow-hidden"
+      className="rounded-lg border h-[650px] border-neutral-200 [box-shadow:0_0_0_1px_rgba(0,0,0,.03),0_2px_4px_rgba(0,0,0,.05),0_12px_24px_rgba(0,0,0,.05)] transform-gpu dark:bg-transparent dark:backdrop-blur-md dark:[border:1px_solid_rgba(255,255,255,.1)] dark:[box-shadow:0_-20px_80px_-20px_#ffffff1f_inset] p-10 pb-0 overflow-hidden"
     >
       <h2 className="text-2xl font-bold pb-5">
         GitHub Discussions creates space to ask questions and have open-ended
@@ -145,7 +145,7 @@ const FeatureCard2 = () => {
   return (
     <div
       ref={secondBoxRef}
-      className="rounded-lg border border-neutral-200 [box-shadow:0_0_0_1px_rgba(0,0,0,.03),0_2px_4px_rgba(0,0,0,.05),0_12px_24px_rgba(0,0,0,.05)] transform-gpu dark:bg-transparent dark:backdrop-blur-md dark:[border:1px_solid_rgba(255,255,255,.1)] dark:[box-shadow:0_-20px_80px_-20px_#ffffff1f_inset] p-10 pb-0 overflow-hidden"
+      className="rounded-lg border h-[650px] border-neutral-200 [box-shadow:0_0_0_1px_rgba(0,0,0,.03),0_2px_4px_rgba(0,0,0,.05),0_12px_24px_rgba(0,0,0,.05)] transform-gpu dark:bg-transparent dark:backdrop-blur-md dark:[border:1px_solid_rgba(255,255,255,.1)] dark:[box-shadow:0_-20px_80px_-20px_#ffffff1f_inset] p-10 pb-0 overflow-hidden"
     >
       <h2 className="text-2xl font-bold pb-5">
         GitHub Discussions creates space to ask questions and have open-ended
@@ -270,7 +270,7 @@ const FeatureCard3 = () => {
 export default function GHubCard() {
   return (
     <section className="max-w-5xl mx-auto flex flex-col gap-y-10">
-      <div className="grid grid-cols-1 md:grid-cols-2 h-[650px] gap-10">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
         <FeatureCard1 />
         <FeatureCard2 />
       </div>
