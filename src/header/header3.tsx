@@ -55,23 +55,21 @@ function MobileMenu({ onClose }: MobileMenuProps) {
       <button>
         <div className="header-logo p-5 flex items-center space-x-2">
           <div className="header-logo flex items-center space-x-2">
-            <div className="rounded-full p-2">
-              <img className="h-5 w-5 rounded-full" src={logo} alt="" />
+            <div className="bg-slate-500/20 rounded-full p-2">
+              <img className="h-5 w-5 " src={logo} alt="" />
             </div>
-            <h2 className="text-neutral-900 dark:text-white font-medium">
-              Side
+            <h2 className="text-neutral-900 dark:text-white font-semibold">
+              MagicUI
             </h2>
           </div>
         </div>
       </button>
       <div className="header-menu lg:hidden">
-        <ul className="flex-col space-y-5 px-8 py-5 pb-8 text-[1.1rem] font-medium text-neutral-900 dark:text-white">
+        <ul className="flex-col space-y-5 px-8 py-5 pb-8 text-[1.1rem] font-semibold text-neutral-900 dark:text-white">
           {menuItems.map((menuItem, index) => (
             <li key={index}>
               <a href={menuItem.url}>
-                <span className="text-neutral-900 dark:text-white">
-                  {menuItem.text}
-                </span>
+                <button>{menuItem.text}</button>
               </a>
             </li>
           ))}
@@ -92,7 +90,7 @@ function MobileMenu({ onClose }: MobileMenuProps) {
   );
 }
 
-export default function Header2() {
+export default function Header3() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const handleMobileMenuToggle = (event: any) => {
@@ -125,21 +123,18 @@ export default function Header2() {
   }, [isMobileMenuOpen]);
 
   return (
-    <div className=" py-2 lg:py-5 px-2 w-full bg-transparent lg:relative  ">
-      <nav className="max-w-4xl xl:max-w-5xl mx-auto px-5 lg:px-2 py-2.5 border border-neutral-400/50 dark:border-neutral-700/50 lg:py-2 rounded-full">
+    <div className="py-2 lg:py-5 px-2 w-full bg-neutral-100 dark:bg-neutral-900 lg:relative  ">
+      <nav className="px-5 lg:px-2 py-2.5 lg:border-none lg:py-2 rounded-full">
         <div className="flex items-center justify-between">
           <button>
             <div className="header-logo flex items-center space-x-2">
-              <div className="bg-white rounded-full p-2">
-                <img className="h-5 w-5 " src={logo} alt="" />
-              </div>
-              <h2 className="text-neutral-900 dark:text-white font-bold">
-                Side
+              <h2 className="text-4xl text-neutral-900 dark:text-white font-semibold">
+                MagicUI
               </h2>
             </div>
           </button>
-          <div className="hidden lg:flex items-center gap-x-10">
-            <ul className="flex space-x-10 text-base  text-neutral-900 dark:text-white">
+          <div className="header-menu hidden lg:flex items-center gap-x-10">
+            <ul className="flex space-x-10 text-base font-semibold text-neutral-900 dark:text-white">
               {menuItems.map((menuItem, index) => (
                 <li key={index}>
                   <a href={menuItem.url}>
@@ -148,16 +143,14 @@ export default function Header2() {
                 </li>
               ))}
             </ul>
-            <div className="header-button space-x-2">
-              <div className="hidden lg:flex lg:items-center gap-x-2">
-                <button className="flex items-center justify-center rounded-full bg-neutral-900 dark:bg-neutral-200 text-white dark:text-neutral-900 px-5 py-2 font-semibold">
-                  <span>Try for free</span>
-                </button>
-                <button className="flex items-center text-neutral-900 dark:text-white justify-center rounded-full border border-neutral-400/50 dark:border-neutral-700/50 px-5 py-2 font-semibold hover:bg-neutral-200/50 dark:hover:bg-neutral-700/50">
-                  <span>Login</span>
-                </button>
-              </div>
-            </div>
+          </div>
+          <div className="hidden lg:flex lg:items-center gap-x-5">
+            <button className="flex items-center text-neutral-900 hover:ring-2 dark:hover:ring-2 ring-neutral-500 dark:ring-neutral-200/70 justify-center rounded-md hover:shadow-none shadow-[2px_2px_0px_3px_rgba(0,0,0,0.9)] dark:shadow-[1px_1px_0px_2px_rgba(255,255,255,0.5)] dark:hover:shadow-none bg-[#EDA35E] px-5 py-2 font-semibold hover:drop-shadow transition-all duration-200">
+              <span>Try for free</span>
+            </button>
+            <button className="flex items-center text-neutral-900 hover:ring-2 dark:hover:ring-2 ring-neutral-500 dark:ring-neutral-200/70 dark:text-white justify-center rounded-md dark:hover:shadow-none hover:shadow-none shadow-[2px_2px_0px_3px_rgba(0,0,0,0.9)] dark:shadow-[1px_1px_0px_2px_rgba(255,255,255,0.9)] bg-white dark:bg-neutral-900 px-5 py-2 font-semibold hover:drop-shadow transition-all duration-200">
+              <span>Login</span>
+            </button>
           </div>
           <div className="flex items-center justify-center lg:hidden">
             <button
