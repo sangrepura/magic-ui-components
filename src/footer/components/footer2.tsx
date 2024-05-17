@@ -1,4 +1,5 @@
 import { FaFacebookF, FaInstagram, FaTwitter } from "react-icons/fa";
+import magicUiLogo from "../../assets/magicui-logo.png";
 
 interface Icon {
   icon: JSX.Element;
@@ -24,9 +25,12 @@ const links: Link[] = [
 
 export default function Footer2() {
   return (
-    <section className="flex flex-col gap-y-5 py-5 px-7 md:px-10">
+    <footer className="flex flex-col max-w-5xl mx-auto gap-y-5 py-5 px-7 md:px-10 border rounded-lg">
       <div className="flex items-center justify-between">
-        <h2 className="font-bold text-lg">Magicui</h2>
+        <div className="flex items-center gap-x-2">
+          <img className="w-5 h-5" src={magicUiLogo} alt="MagicUI Logo" />
+          <h2 className="font-bold text-lg">Magicui</h2>
+        </div>
 
         <div className="social-icons flex items-center gap-x-4">
           {icons.map((icon, index) => (
@@ -41,11 +45,11 @@ export default function Footer2() {
         </div>
       </div>
       <div className="flex flex-col md:flex-row gap-y-5 md:items-center justify-between">
-        <ul className="flex flex-col md:flex-row md:items-center gap-x-10 gap-y-2 text-sm font-semibold text-neutral-500 dark:text-neutral-300">
+        <ul className="flex flex-col md:flex-row md:items-center gap-x-5 gap-y-2 text-neutral-500 ">
           {links.map((link, index) => (
             <li
               key={index}
-              className="hover:underline hover:underline-offset-4"
+              className="hover:underline hover:underline-offset-4 dark:text-neutral-400 text-neutral-500 hover:text-neutral-900 hover:dark:text-neutral-300"
             >
               <a href={link.url}>{link.text}</a>
             </li>
@@ -55,6 +59,6 @@ export default function Footer2() {
           <p>All right reserverd</p>
         </div>
       </div>
-    </section>
+    </footer>
   );
 }

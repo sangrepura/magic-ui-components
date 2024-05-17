@@ -45,7 +45,7 @@ const footerLinks: FooterLinksType[] = [
 
 export default function Footer8() {
   return (
-    <footer className="footer px-7 md:px-10">
+    <footer className="footer px-7 md:px-10 max-w-5xl mx-auto border rounded-lg">
       <div className="flex flex-col md:flex-row md:items-center md:justify-between py-10">
         <div className="flex flex-col gap-y-1 justify-start items-start">
           <a href="#" className="flex items-center gap-x-2.5">

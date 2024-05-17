@@ -25,7 +25,7 @@ const icons: Icon[] = [
 
 export default function Footer7() {
   return (
-    <div className="px-5 lg:px-10 p-5">
+    <footer className="px-5 lg:px-10 p-5 max-w-7xl mx-auto">
       <div className="flex flex-col gap-y-5 md:flex-row items-start md:items-center justify-between w-full gap-x-5">
         <div className="header-logo flex items-center gap-x-2">
           <img
@@ -34,11 +34,11 @@ export default function Footer7() {
             alt="Company Logo"
           />
           <h2 className="text-neutral-900 dark:text-white font-bold text-base">
-            Darkmode
+            MagicUI
           </h2>
         </div>
 
-        <ul className="flex flex-col md:flex-row items-start md:items-center justify-center gap-x-10 text-neutral-900 dark:text-white">
+        <ul className="flex flex-col md:flex-row items-start md:items-center justify-center gap-x-7 text-neutral-900 dark:text-white">
           {links.map((link, index) => (
             <li
               key={index}
@@ -60,6 +60,6 @@ export default function Footer7() {
           ))}
         </div>
       </div>
-    </div>
+    </footer>
   );
 }

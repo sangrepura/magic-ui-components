@@ -1,16 +1,20 @@
 import Homepage from "./components/homepage/homepage";
 import { Route, Routes } from "react-router-dom";
-import Page2 from "./components/page-2/app";
-import Footer from "./footer/app";
-import Header from "./header/app";
+import FooterPage from "./footer/app";
+import HeaderPage from "./header/app";
+import BugFix from "./bug-fix/app";
+import CtaPage from "./cta/app";
+import PricingPage from "./pricing/app";
 
 export default function App() {
   return (
     <Routes>
       <Route path="/" element={<Homepage />} />
-      <Route path="/page2" element={<Page2 />} />
-      {<Route path="/footer" element={<Footer />} />}
-      <Route path="/header" element={<Header />} />
+      <Route path="/header" element={<HeaderPage />} />
+      <Route path="/footer" element={<FooterPage />} />
+      <Route path="/bug-fix" element={<BugFix />} />
+      <Route path="/cta" element={<CtaPage />} />
+      <Route path="/pricing" element={<PricingPage />} />
     </Routes>
   );
 }

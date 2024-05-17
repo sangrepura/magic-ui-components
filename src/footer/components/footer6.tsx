@@ -32,7 +32,7 @@ export default function Footer6() {
   ];
 
   return (
-    <div className="footer px-7 md:px-10">
+    <div className="footer px-7 md:px-10 max-w-5xl mx-auto border rounded-lg">
       {/* 1st top section */}
       <div className="border-b border-slate-400/20 border-dashed flex flex-col gap-y-3 items-center justify-center lg:flex-row lg:items-center lg:justify-between py-10">
         <h3 className="text-2xl md:text-4xl text-neutral-900 dark:text-white font-bold max-w-sm text-center md:text-start text-balance">

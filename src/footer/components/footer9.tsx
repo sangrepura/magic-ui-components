@@ -1,7 +1,5 @@
 import logo from "../../assets/manu.png";
 import { FaFacebookF, FaInstagram, FaTwitter } from "react-icons/fa";
-import iosDownloadImage from "../../assets/ios-download.png";
-import playstoreDownloadImage from "../../assets/playstore-download.png";
 
 interface Icon {
   icon: JSX.Element;
@@ -53,27 +51,24 @@ const footerLinks: FooterLinksType[] = [
 export default function Footer9() {
   return (
     <footer className="footer">
-      <div className="flex flex-col md:flex-row md:items-center md:justify-between py-10  px-7 md:px-10">
-        <div className="w-full">
-          <div className="flex gap-x-3 items-center justify-between lg:pl-10">
-            {Object.keys(footerLinks[0]).map((columnKey) => (
-              <ul
-                key={columnKey}
-                className="footer-link-list text-neutral-900 dark:text-white text-sm  flex flex-col gap-y-2"
-              >
-                {footerLinks[0][columnKey as keyof FooterLinksType].map(
-                  (link: any) => (
-                    <li
-                      className="hover:underline hover:underline-offset-4"
-                      key={link.id}
-                    >
-                      <a href={link.url}>{link.title}</a>
+      <div className="flex flex-col md:flex-row md:items-center md:justify-between w-full py-10 px-7 md:px-10">
+        <div className="flex gap-x-3 w-full items-center justify-between lg:pl-10">
+          {Object.keys(footerLinks[0]).map((columnKey) => (
+            <ul
+              key={columnKey}
+              className="footer-link-list text-neutral-900 dark:text-white text-sm  flex flex-col gap-y-2"
+            >
+              {footerLinks[0][columnKey as keyof FooterLinksType].map(
+                (link: any) => (
+                  <a href={link.url} key={link.id}>
+                    <li className="hover:underline hover:underline-offset-4">
+                      {link.title}
                     </li>
-                  )
-                )}
-              </ul>
-            ))}
-          </div>
+                  </a>
+                )
+              )}
+            </ul>
+          ))}
         </div>
       </div>
       <div className="flex flex-col md:flex-row gap-y-5 md:items-center justify-between border-t border-dashed border-neutral-500/20 dark:border-neutral-700/50 py-10 bg-neutral-100 dark:bg-neutral-900  px-7 md:px-10">
