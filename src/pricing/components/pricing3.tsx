@@ -3,7 +3,7 @@ import { BiCheck } from "react-icons/bi";
 import Pricingtoggle from "./pricingtoggle";
 import { useState } from "react";
 
-export default function Pricing2() {
+export default function Pricing3() {
   const [enabled, setEnabled] = useState(false);
   const pricingOptions = [
     {
@@ -12,14 +12,14 @@ export default function Pricing2() {
       yearlyPrice: "$0",
       description:
         "Let top creative talent come to you by posting your job listing on #1 Design Jobs Board.",
-      features: [
-        "Access to All Features",
-        "20% discount on backorders",
-        "Domain name Appraisal",
-        "10 Social Profiles",
-      ],
     },
-
+    {
+      name: "Enterprise",
+      price: "$499",
+      yearlyPrice: "$1228",
+      description:
+        "Get your roles filled faster with unlimited access to Dribbble's Job Board and Designer search.",
+    },
     {
       name: " Pro",
       price: "$499",
@@ -54,13 +54,21 @@ export default function Pricing2() {
             color="bg-pink-500"
           />
         </div>
-        <div className="pricing-card max-w-3xl mx-auto w-full grid place-content-center items-center lg:items-start h-full px-10 gap-6 py-8 lg:py-12 lg:pb-20 lg:pt-8">
+        <div className="pricing-card max-w-3xl mx-auto w-full grid grid-cols-2 place-content-center items-center lg:items-start h-full px-10 lg:px-14 xl:px-2 gap-6 py-8 lg:py-12 lg:pb-20 lg:pt-8">
           {pricingOptions.map((option, index) => (
             <div
               key={index}
-              className={`w-full h-full border border-neutral-300/50 dark:border-neutral-700/50 rounded-xl grid grid-cols-1 lg:grid-cols-5  `}
+              className={`w-full h-full border ${
+                option.features ? "col-span-2" : "col-span-2 sm:col-span-1"
+              } border-neutral-300/50 dark:border-neutral-700/50 rounded-xl flex flex-col md:flex-row items-stretch`}
             >
-              <div className="p-5 flex flex-col justify-between gap-y-10 col-span-2 bg-neutral-50 dark:bg-neutral-900 rounded-t-xl lg:rounded-t-none lg:rounded-tl-xl lg:rounded-bl-xl">
+              <div
+                className={`p-5 flex flex-col justify-between gap-y-10 ${
+                  option.features
+                    ? "md:w-[40%] rounded-t-xl md:rounded-l-xl md:rounded-tr-none"
+                    : "w-full rounded-xl"
+                } bg-neutral-50 dark:bg-neutral-900`}
+              >
                 <div className="flex flex-col gap-y-2">
                   <p
                     className={` text-2xl text-black dark:text-white font-semibold`}
@@ -89,22 +97,24 @@ export default function Pricing2() {
                   </button>
                 </div>
               </div>
-
-              <div className="pricing-features flex flex-col justify-center col-span-3 gap-y-5 p-5 lg:w-2/3">
-                {option.extraBenefits && (
-                  <p className="text-neutral-500 dark:text-neutral-400 text-sm font-[400]">
-                    {option.extraBenefits}
-                  </p>
-                )}
-                {option.features.map((feature, index) => (
-                  <div key={index} className="flex gap-x-3">
-                    <div className="border border-pink-500 dark:border-pink-500 rounded-full h-5 w-5 flex items-center justify-center">
-                      <BiCheck className="text-pink-500 text-lg" />
-                    </div>
-                    <p className="text-black dark:text-white">{feature}</p>
-                  </div>
-                ))}
-              </div>
+              {option.features && (
+                <div className="pricing-features flex flex-col justify-center gap-y-5 p-5 md:pl-10 md:w-[60%]">
+                  {option.extraBenefits && (
+                    <p className="text-neutral-500 dark:text-neutral-400 text-sm font-[400]">
+                      {option.extraBenefits}
+                    </p>
+                  )}
+                  {option.features &&
+                    option.features.map((feature, index) => (
+                      <div key={index} className="flex gap-x-3">
+                        <div className="border border-pink-500 dark:border-pink-500 rounded-full h-5 w-5 flex items-center justify-center">
+                          <BiCheck className="text-pink-500 text-lg" />
+                        </div>
+                        <p className="text-black dark:text-white">{feature}</p>
+                      </div>
+                    ))}
+                </div>
+              )}
             </div>
           ))}
         </div>
