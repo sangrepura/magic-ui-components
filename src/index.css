@@ -72,7 +72,68 @@
   }
 
   body {
-    font-family: "Gabarito", sans-serif;
+    font-family: "Bricolage Grotesque", sans-serif;
+    font-optical-sizing: auto;
+    /* font-family: "Gabarito", sans-serif; */
     @apply bg-background text-foreground;
+  }
+
+  .lab-bg {
+    --mask-offset: 100px;
+    -webkit-mask: linear-gradient(
+        to bottom,
+        transparent,
+        #fff var(--mask-offset) calc(100% - var(--mask-offset)),
+        transparent
+      ),
+      linear-gradient(
+        to right,
+        transparent,
+        #fff var(--mask-offset) calc(100% - var(--mask-offset)),
+        transparent
+      );
+    mask: linear-gradient(
+        to bottom,
+        transparent,
+        #fff var(--mask-offset) calc(100% - var(--mask-offset)),
+        transparent
+      ),
+      linear-gradient(
+        to right,
+        transparent,
+        #fff var(--mask-offset) calc(100% - var(--mask-offset)),
+        transparent
+      );
+    -webkit-mask-composite: source-in, xor;
+    mask-composite: intersect;
+  }
+  .lab-bg-container {
+    --mask-offset: 50px;
+    -webkit-mask: linear-gradient(
+        to left,
+        transparent,
+        #fff var(--mask-offset) calc(100% - var(--mask-offset)),
+        transparent
+      ),
+      linear-gradient(
+        to right,
+        transparent,
+        #fff var(--mask-offset) calc(100% - var(--mask-offset)),
+        transparent
+      );
+    mask: linear-gradient(
+        to left,
+        transparent,
+        #fff var(--mask-offset) calc(100% - var(--mask-offset)),
+        transparent
+      ),
+      linear-gradient(
+        to right,
+        transparent,
+        #fff var(--mask-offset) calc(100% - var(--mask-offset)),
+        transparent
+      );
+    -webkit-mask-composite: source-in, xor;
+    mask-composite: intersect;
   }
 }

@@ -13,7 +13,7 @@ export default function Cta3() {
         </div>
         <a
           href="/"
-          className="bg-neutral-800 text-white dark:bg-neutral-100 dark:text-neutral-800 w-48 h-10 rounded-lg flex items-center justify-center"
+          className="bg-neutral-800 text-white dark:bg-neutral-100 dark:text-neutral-800 hover:ring-2 hover:ring-neutral-800 dark:hover:ring-neutral-200 hover:ring-offset-2 transition-all ease-linear duration-100 hover:ring-offset-current w-48 h-10 rounded-lg flex items-center justify-center"
         >
           Buy now
         </a>
