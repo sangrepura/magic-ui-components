@@ -1,7 +1,7 @@
 export default function Cta6() {
   return (
     <section className="w-full py-14 px-5 lg:px-0">
-      <div className="container px-0 grid lg:grid-cols-2 items-center justify-between gap-6 lg:gap-10 max-w-5xl mx-auto rounded-xl border">
+      <div className="container px-0 grid md:grid-cols-2 items-center justify-between max-w-5xl mx-auto rounded-xl border">
         <div className="relative mx-auto aspect-video overflow-hidden rounded-l-xl sm:w-full h-full bg-red-500">
           <img
             alt="Workflow"
@@ -10,7 +10,7 @@ export default function Cta6() {
           />
           <div className="absolute inset-0 rounded-xl bg-gradient-to-br from-transparent to-neutral-900/20 dark:to-neutral-800/20" />
         </div>
-        <div className="flex flex-col gap-y-3.5 p-10">
+        <div className="flex flex-col gap-y-3.5 p-7 md:p-10">
           <div className="space-y-2">
             <blockquote className="text-lg font-semibold leading-snug lg:text-xl lg:leading-normal xl:text-2xl text-balance">
               “One of the best and{" "}

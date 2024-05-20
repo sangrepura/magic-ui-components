@@ -54,11 +54,11 @@ export default function Pricing2() {
             color="bg-pink-500"
           />
         </div>
-        <div className="pricing-card max-w-3xl mx-auto w-full grid place-content-center items-center lg:items-start h-full px-10 gap-6 py-8 lg:py-12 lg:pb-20 lg:pt-8">
+        <div className="pricing-card max-w-4xl mx-auto w-full grid place-content-center items-center lg:items-start h-full px-10 gap-6 py-8 lg:py-12 lg:pb-20 lg:pt-8">
           {pricingOptions.map((option, index) => (
             <div
               key={index}
-              className={`w-full h-full border border-neutral-300/50 dark:border-neutral-700/50 rounded-xl grid grid-cols-1 lg:grid-cols-5  `}
+              className={`w-full h-full border border-neutral-300/50 dark:border-neutral-700/50 rounded-xl grid grid-cols-1 lg:grid-cols-5`}
             >
               <div className="p-5 flex flex-col justify-between gap-y-10 col-span-2 bg-neutral-50 dark:bg-neutral-900 rounded-t-xl lg:rounded-t-none lg:rounded-tl-xl lg:rounded-bl-xl">
                 <div className="flex flex-col gap-y-2">
@@ -90,7 +90,7 @@ export default function Pricing2() {
                 </div>
               </div>
 
-              <div className="pricing-features flex flex-col justify-center col-span-3 gap-y-5 p-5 lg:w-2/3">
+              <div className="pricing-features flex flex-col justify-center col-span-3 gap-y-5 p-5 lg:w-2/3 lg:pl-10">
                 {option.extraBenefits && (
                   <p className="text-neutral-500 dark:text-neutral-400 text-sm font-[400]">
                     {option.extraBenefits}

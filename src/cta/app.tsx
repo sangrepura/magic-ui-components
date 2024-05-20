@@ -14,7 +14,7 @@ export default function CtaPage() {
           CTA-3
         </h2>
       </div>
-      <div className="p-5 lg:px-0">
+      <div className="p-5">
         <Cta3 />
       </div>
       <div className="h-[10vh] bg-neutral-100 dark:bg-neutral-900 border-b border-t">
@@ -22,7 +22,7 @@ export default function CtaPage() {
           CTA-4
         </h2>
       </div>
-      <div className="p-5 lg:px-0">
+      <div>
         <Cta4 />
       </div>
       <div className="h-[10vh] bg-neutral-100 dark:bg-neutral-900 border-b border-t">
@@ -30,7 +30,7 @@ export default function CtaPage() {
           CTA-5
         </h2>
       </div>
-      <div className="p-5 lg:px-0">
+      <div>
         <Cta5 />
       </div>
       <div className="h-[10vh] bg-neutral-100 dark:bg-neutral-900 border-b border-t">
@@ -38,7 +38,7 @@ export default function CtaPage() {
           CTA-6
         </h2>
       </div>
-      <div className="p-5 lg:px-0">
+      <div>
         <Cta6 />
       </div>
       <div className="h-[10vh] bg-neutral-100 dark:bg-neutral-900 border-b border-t">

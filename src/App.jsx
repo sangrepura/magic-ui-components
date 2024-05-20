@@ -5,6 +5,7 @@ import HeaderPage from "./header/app";
 import BugFix from "./bug-fix/app";
 import CtaPage from "./cta/app";
 import PricingPage from "./pricing/app";
+import NewsletterPage from "./newsletter/app";
 
 export default function App() {
   return (
@@ -15,6 +16,7 @@ export default function App() {
       <Route path="/bug-fix" element={<BugFix />} />
       <Route path="/cta" element={<CtaPage />} />
       <Route path="/pricing" element={<PricingPage />} />
+      <Route path="/newsletter" element={<NewsletterPage />} />
     </Routes>
   );
 }

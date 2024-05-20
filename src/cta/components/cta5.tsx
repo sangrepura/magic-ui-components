@@ -3,16 +3,15 @@ import SideImage from "../../assets/dark-grid-1.jpg";
 export default function Cta5() {
   return (
     <section className="w-full py-14 px-5 lg:px-0">
-      <div className="container px-0 grid lg:grid-cols-2 items-center justify-between gap-6 lg:gap-10 max-w-5xl mx-auto rounded-xl border">
-        <div className="flex flex-col gap-y-5 p-10">
+      <div className="container px-0 grid md:grid-cols-2 items-center justify-between max-w-5xl mx-auto rounded-xl border">
+        <div className="flex flex-col gap-y-5 p-7 lg:p-10 order-2 md:order-1">
           <div className="space-y-2">
-            <h2 className="text-3xl font-bold tracking-tighter md:text-4xl/tight">
-              Streamline Your Workflow with Our Platform
+            <h2 className="text-3xl font-bold tracking-tighter lg:text-4xl/tight">
+              Make animated components magical
             </h2>
-            <p className="max-w-[600px] text-neutral-500 md:text-xl/[1.5] lg:text-base/[1.5] xl:text-lg/[1.5] dark:text-neutral-400">
-              Boost your team's productivity and efficiency with our all-in-one
-              solution. Automate your processes, collaborate seamlessly, and
-              focus on what matters most.
+            <p className="max-w-[600px] text-neutral-500 md:text-base/[1.5] lg:text-base/[1.5] xl:text-lg/[1.5] dark:text-neutral-400">
+              Here is your favourite React Library that you want to buy, it's
+              MagicUI. Make your website bold and make your components magical.
             </p>
           </div>
           <a
@@ -22,7 +21,7 @@ export default function Cta5() {
             Get Started
           </a>
         </div>
-        <div className="relative mx-auto aspect-video overflow-hidden rounded-r-xl sm:w-full h-full bg-red-500">
+        <div className="relative order-1 md:order-2 mx-auto lg:aspect-video overflow-hidden border rounded-xl rounded-l-none md:rounded-r-xl sm:w-full h-full bg-red-500 min-h-[350px]">
           <img
             alt="Workflow"
             className="object-cover object-center w-full h-full"
