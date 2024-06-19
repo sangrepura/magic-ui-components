@@ -2,10 +2,15 @@ import magicuiLogo from "../assets/magicui-logo.png";
 import Header1 from "./components/header1";
 import Header2 from "./components/header2";
 import Header3 from "./components/header3";
+import Header4 from "./components/header4";
+import Header5 from "./components/header5";
 
 export default function HeaderPage() {
   return (
     <div className="header">
+      <div className="border">
+        <Header5 />
+      </div>
       <Header1 />
       <div className="w-full bg-white dark:bg-neutral-900">
         <div className="flex flex-col gap-y-5 max-w-3xl mx-auto items-center justify-center h-screen w-full bg-white dark:bg-neutral-900">
@@ -28,6 +33,9 @@ export default function HeaderPage() {
       </div>
       <div className="border">
         <Header3 />
+      </div>
+      <div className="border">
+        <Header4 />
       </div>
     </div>
   );

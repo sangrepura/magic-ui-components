@@ -17,7 +17,9 @@ import GridComponent4 from "../../components/bentrogrid/gridcomponent4";
 import GridComponent5 from "../../components/bentrogrid/gridcomponent5";
 import GridComponent6 from "../../components/bentrogrid/gridcomponent6";
 import GHubCard from "../ghubcard/ghubcard";
+import BentoVariant1 from "../ghubcard/bento-variant-1";
 import Navbar from "../navbar";
+import TextReveal from "../magicui/text-reveal";
 
 export default function Homepage() {
   return (
@@ -29,6 +31,15 @@ export default function Homepage() {
         <h2 className="font-bold text-2xl md:text-3xl lg:text-4xl xl:text-5xl flex items-center h-[50vh] justify-center">
           Text Reveal By Character 👇
         </h2>
+      </div>
+
+      <div className="h-[50vh] bg-amber-500">
+        <button
+          data-launchlane="true"
+          className="w-full max-w-md mx-auto bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded"
+        >
+          Buy now
+        </button>
       </div>
 
       {/* ====================================================================================================== */}
@@ -205,6 +216,14 @@ export default function Homepage() {
 
       <div className="grid place-content-center overflow-hidden w-full bg-neutral-50 dark:bg-neutral-900 antialiased py-20 px-5 lg:px-20">
         <GHubCard />
+      </div>
+      {/* ====================================================================================================== */}
+      <div className="grid place-content-center overflow-hidden w-full bg-neutral-50 dark:bg-neutral-900 antialiased py-20 px-5 lg:px-20">
+        <BentoVariant1 />
+      </div>
+
+      <div className="z-10 flex min-h-[16rem] items-center justify-center rounded-lg border bg-white dark:bg-black">
+        <TextReveal text="Magic UI will change the way you design." />
       </div>
     </main>
   );

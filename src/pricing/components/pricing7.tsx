@@ -1,4 +1,4 @@
-export default function Pricing7() {
+export default function Pricing() {
   const plans = [
     {
       name: "Basic",
@@ -25,24 +25,33 @@ export default function Pricing7() {
   ];
 
   return (
-    <div className="max-w-4xl mx-auto p-5">
-      <h2 className="text-3xl font-bold text-center">
-        Plans for teams of all sizes
-      </h2>
-      <p className="text-center text-neutral-600 mt-2">
-        Choose the best package that suits you
-      </p>
-      <div className="mt-8 grid sm:grid-cols-2 gap-8">
+    <div className="mx-auto max-w-4xl py-10 px-5">
+      <div className="text-center">
+        <h4 className="text-xl font-bold tracking-tight text-black dark:text-white">
+          Pricing
+        </h4>
+
+        <h2 className="text-5xl font-bold tracking-tight text-black dark:text-white sm:text-6xl">
+          Simple pricing for everyone.
+        </h2>
+
+        <p className="mt-6 text-balance text-xl leading-8 text-black/80 dark:text-white">
+          Choose an <strong>affordable plan</strong> that&apos;s packed with the
+          best features for engaging your audience, creating customer loyalty,
+          and driving sales.
+        </p>
+      </div>
+      <div className="mt-8 grid gap-8 sm:grid-cols-2">
         {plans.map((plan, index) => (
           <div
             key={index}
-            className="border rounded-lg p-5 flex flex-col gap-y-5"
+            className="flex flex-col gap-y-5 rounded-lg border p-5"
           >
             <div className="flex flex-col gap-y-1">
               <h3 className="text-lg font-semibold">{plan.name}</h3>
               <p className="text-2xl font-bold">{plan.price}</p>
             </div>
-            <button className="inline-flex items-center justify-center whitespace-nowrap text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground hover:bg-primary/90 h-11 rounded-md px-8 w-full">
+            <button className="inline-flex h-11 w-full items-center justify-center whitespace-nowrap rounded-md bg-primary px-8 text-sm font-medium text-primary-foreground ring-offset-background transition-colors hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50">
               {plan.buttonText}
             </button>
             <div className="mt-2">
@@ -51,9 +60,9 @@ export default function Pricing7() {
                 {plan.features.map((feature, i) => (
                   <li key={i} className="flex items-center">
                     {feature.available ? (
-                      <CheckIcon className="text-green-500 mr-2" />
+                      <CheckIcon className="mr-2 text-green-500" />
                     ) : (
-                      <XIcon className="text-neutral-700/30 dark:text-neutral-300/30 mr-2" />
+                      <XIcon className="mr-2 text-neutral-700/30 dark:text-neutral-300/30" />
                     )}
                     <span
                       className={
