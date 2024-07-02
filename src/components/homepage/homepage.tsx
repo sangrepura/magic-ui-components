@@ -32,20 +32,8 @@ export default function Homepage() {
           Text Reveal By Character 👇
         </h2>
       </div>
-
-      <div className="h-[50vh] bg-amber-500">
-        <button
-          data-launchlane="true"
-          className="w-full max-w-md mx-auto bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded"
-        >
-          Buy now
-        </button>
-      </div>
-
       {/* ====================================================================================================== */}
-
       <TextRevealByChar />
-
       {/* ====================================================================================================== */}
 
       <div className="h-[50vh] bg-red-500">
