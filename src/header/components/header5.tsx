@@ -1,41 +1,60 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
+import { motion } from "framer-motion";
 
-export default function Header5() {
-  const [activeTab, setActiveTab] = useState<string>("work");
+interface NavItem {
+  name: string;
+  link: string;
+}
 
-  const handleTabClick = (tab: string) => {
-    setActiveTab(tab);
+const navs: NavItem[] = [
+  { name: "Home", link: "/" },
+  { name: "Examples", link: "/examples" },
+  { name: "Motion", link: "/learnings" },
+];
+
+const Header5 = () => {
+  const [left, setLeft] = useState(0);
+  const [width, setWidth] = useState(0);
+  const [opacity, setOpacity] = useState(0);
+
+  const ref = useRef<HTMLUListElement>(null);
+
+  const handleMouseEnter = (e: React.MouseEvent<HTMLLIElement>) => {
+    const node = e.currentTarget;
+    const rect = node.getBoundingClientRect();
+    setLeft(node.offsetLeft);
+    setWidth(rect.width);
+    setOpacity(1);
+  };
+
+  const handleMouseLeave = () => {
+    setOpacity(0);
   };
 
   return (
-    <div className="nav-pill-wrapper relative flex justify-center items-center">
-      <div className="nav-indicator-glow absolute inset-0 rounded-full bg-white/10 shadow-[0_0_10px_rgba(255,255,255,0.5)] z-[1]"></div>
-      <div className="nav-pill relative flex bg-gray-800 rounded-full p-1 z-[2]">
-        <a
-          href="#"
-          className={`nav-toggle work flex items-center justify-center px-4 py-2 text-white no-underline relative z-[3] rounded-l-full ${
-            activeTab === "work" ? "active" : ""
-          }`}
-          onClick={() => handleTabClick("work")}
-        >
-          <div className="text-nav-toggle font-bold text-lg">Work</div>
-        </a>
-        <a
-          href="#"
-          className={`nav-toggle info flex items-center justify-center px-4 py-2 text-white no-underline relative z-[3] rounded-r-full ${
-            activeTab === "info" ? "active" : ""
-          }`}
-          onClick={() => handleTabClick("info")}
-        >
-          <div className="text-nav-toggle font-bold text-lg">Info</div>
-        </a>
-        <div
-          className="nav-indicator-pill absolute top-1 left-1 w-1/2 h-[calc(100%-8px)] bg-gray-600 rounded-full transition-all duration-300 ease-in-out z-[1]"
-          style={{
-            left: activeTab === "work" ? "0.25rem" : "calc(50% + 0.25rem)",
-          }}
-        ></div>
-      </div>
-    </div>
+    <nav className="py-20 w-full dark:bg-neutral-800/60 bg-neutral-100/60">
+      <ul
+        onMouseLeave={handleMouseLeave}
+        className="relative mx-auto flex w-fit rounded-full border-2 border-black dark:border-white bg-white dark:bg-neutral-800 p-1"
+        ref={ref}
+      >
+        {navs.map((item) => (
+          <li
+            key={item.name}
+            onMouseEnter={handleMouseEnter}
+            className="relative z-10 block cursor-pointer px-3 py-1.5 text-xs uppercase text-white mix-blend-difference md:px-5 md:py-3 md:text-base"
+          >
+            <a href={item.link}>{item.name}</a>
+          </li>
+        ))}
+        <motion.li
+          animate={{ left, width, opacity }}
+          transition={{ type: "spring", stiffness: 400, damping: 30 }}
+          className="absolute z-0 h-7 rounded-full bg-black dark:bg-white md:h-12"
+        />
+      </ul>
+    </nav>
   );
-}
+};
+
+export default Header5;

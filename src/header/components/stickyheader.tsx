@@ -1,16 +1,12 @@
-import magicuiLogo from "../assets/magicui-logo.png";
-import Header2 from "./components/header2";
-import Header3 from "./components/header3";
-import Header4 from "./components/header4";
-import Header5 from "./components/header5";
-import Header6 from "./components/header6";
+import Header1 from "./header1";
+import magicuiLogo from "../../assets/magicui-logo.png";
 
-export default function HeaderPage() {
+export default function StickyHeader() {
   return (
-    <div className="header relative bg-white dark:bg-neutral-900">
-      <Header4 />
+    <nav>
+      <Header1 />
       <div className="w-full bg-white dark:bg-neutral-900">
-        <div className="flex flex-col gap-y-5 max-w-3xl mx-auto items-center justify-center h-screen w-full bg-white dark:bg-neutral-900">
+        <div className="flex flex-col gap-y-5 max-w-3xl mx-auto items-center justify-center h-[200vh] w-full bg-white dark:bg-neutral-900">
           <img className="w-20 h-20" src={magicuiLogo} alt="MagicUI Logo" />
           <h1 className="text-4xl font-bold text-balance text-center">
             MagicUI is the best animated react library.
@@ -25,15 +21,6 @@ export default function HeaderPage() {
           </button>
         </div>
       </div>
-      <div className="border">
-        <Header2 />
-      </div>
-      <div className="border">
-        <Header3 />
-      </div>
-      <div className="border">
-        <Header5 />
-      </div>
-    </div>
+    </nav>
   );
 }

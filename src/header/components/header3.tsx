@@ -51,11 +51,11 @@ function MobileMenu({ onClose }: MobileMenuProps) {
   }, [onClose]);
 
   return (
-    <nav className="z-50 dark:bg-neutral-800/60 bg-neutral-100/60 shadow-sm lg:shadow-none absolute left-0 top-0 bottom-0 right-0 border-r border-slate-400/30 border-dashed w-[270px] md:w-[300px] lg:flex lg:w-[300px] lg:flex-col backdrop-blur-md">
+    <nav className="z-50 dark:bg-neutral-800/60 bg-neutral-100/60 shadow-sm lg:shadow-none absolute left-0 top-0 bottom-0 right-0 border-r border-neutral-400/30 border-dashed w-[270px] md:w-[300px] lg:flex lg:w-[300px] lg:flex-col backdrop-blur-md">
       <a href="/">
         <div className="header-logo p-5 flex items-center space-x-2">
           <div className="header-logo flex items-center space-x-2">
-            <div className="bg-slate-500/20 rounded-full p-2">
+            <div className="bg-neutral-500/20 rounded-full p-2">
               <img className="h-5 w-5 " src={magicUiLogo} alt="MagicUI Logo" />
             </div>
             <h2 className="text-neutral-900 dark:text-white font-semibold">
@@ -144,7 +144,7 @@ export default function Header3() {
           </ul>
         </div>
         <div className="hidden lg:flex lg:items-center gap-x-5">
-          <button className="flex items-center text-neutral-900 hover:ring-2 dark:hover:ring-2 ring-neutral-500 dark:ring-neutral-200/70 justify-center rounded-md hover:shadow-none shadow-[2px_2px_0px_3px_rgba(0,0,0,0.9)] dark:shadow-[1px_1px_0px_2px_rgba(255,255,255,0.5)] dark:hover:shadow-none bg-[#EDA35E] px-5 py-2 font-semibold hover:drop-shadow transition-all duration-200">
+          <button className="flex items-center text-neutral-900 hover:ring-2 dark:hover:ring-2 ring-neutral-500 dark:ring-neutral-200/70 justify-center rounded-md hover:shadow-none shadow-[2px_2px_0px_3px_rgba(0,0,0,0.9)] dark:shadow-[1px_1px_0px_2px_rgba(255,255,255,0.5)] dark:hover:shadow-none bg-white px-5 py-2 font-semibold hover:drop-shadow transition-all duration-200">
             <span>Try for free</span>
           </button>
           <button className="flex items-center text-neutral-900 hover:ring-2 dark:hover:ring-2 ring-neutral-500 dark:ring-neutral-200/70 dark:text-white justify-center rounded-md dark:hover:shadow-none hover:shadow-none shadow-[2px_2px_0px_3px_rgba(0,0,0,0.9)] dark:shadow-[1px_1px_0px_2px_rgba(255,255,255,0.9)] bg-white dark:bg-neutral-900 px-5 py-2 font-semibold hover:drop-shadow transition-all duration-200">
@@ -155,13 +155,13 @@ export default function Header3() {
           <button
             className={`advanced-setting-toggle focus:outline-none ${
               isMobileMenuOpen
-                ? "rounded-full bg-slate-200 text-slate-800"
-                : "text-slate-200"
+                ? "rounded-full bg-neutral-200 text-neutral-800"
+                : "text-neutral-200"
             }`}
             onClick={handleMobileMenuToggle}
           >
             {isMobileMenuOpen ? (
-              <AiOutlineCloseCircle className="text-2xl focus:outline-none active:scale-110 active:text-slate-200" />
+              <AiOutlineCloseCircle className="text-2xl focus:outline-none active:scale-110 active:text-neutral-200" />
             ) : (
               <HiMenuAlt3 className="text-2xl text-neutral-900 dark:text-white focus:outline-none active:scale-110" />
             )}
