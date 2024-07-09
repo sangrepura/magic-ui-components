@@ -144,7 +144,7 @@ export default function Header3() {
           </ul>
         </div>
         <div className="hidden lg:flex lg:items-center gap-x-5">
-          <button className="flex items-center text-neutral-900 hover:ring-2 dark:hover:ring-2 ring-neutral-500 dark:ring-neutral-200/70 justify-center rounded-md hover:shadow-none shadow-[2px_2px_0px_3px_rgba(0,0,0,0.9)] dark:shadow-[1px_1px_0px_2px_rgba(255,255,255,0.5)] dark:hover:shadow-none bg-white px-5 py-2 font-semibold hover:drop-shadow transition-all duration-200">
+          <button className="flex items-center text-white dark:text-neutral-900 hover:ring-2 dark:hover:ring-2 ring-neutral-500 dark:ring-neutral-200/70 justify-center rounded-md hover:shadow-none shadow-[2px_2px_0px_3px_rgba(0,0,0,0.8)] dark:shadow-[1px_1px_0px_2px_rgba(255,255,255,0.5)] dark:hover:shadow-none dark:bg-white px-5 py-2 bg-neutral-900 font-semibold hover:drop-shadow transition-all duration-200">
             <span>Try for free</span>
           </button>
           <button className="flex items-center text-neutral-900 hover:ring-2 dark:hover:ring-2 ring-neutral-500 dark:ring-neutral-200/70 dark:text-white justify-center rounded-md dark:hover:shadow-none hover:shadow-none shadow-[2px_2px_0px_3px_rgba(0,0,0,0.9)] dark:shadow-[1px_1px_0px_2px_rgba(255,255,255,0.9)] bg-white dark:bg-neutral-900 px-5 py-2 font-semibold hover:drop-shadow transition-all duration-200">

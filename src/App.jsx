@@ -8,6 +8,7 @@ import PricingPage from "./pricing/app";
 import NewsletterPage from "./newsletter/app";
 import StickyHeader from "./header/components/stickyheader";
 import ScrollUpVisibleHeader from "./header/components/scrollupvisibleheader";
+import AccordionDemo from "./feature/featurecard";
 
 export default function App() {
   return (
@@ -21,6 +22,7 @@ export default function App() {
       <Route path="/newsletter" element={<NewsletterPage />} />
       <Route path="/sticky-header" element={<StickyHeader />} />
       <Route path="/scroll-header" element={<ScrollUpVisibleHeader />} />
+      <Route path="/feature" element={<AccordionDemo />} />
     </Routes>
   );
 }
