@@ -190,19 +190,4 @@
   display: none;
 }
 
-.scrollcontainer {
-  -webkit-mask-image: linear-gradient(
-    90deg,
-    transparent,
-    black 20%,
-    white 80%,
-    transparent
-  );
-  mask-image: linear-gradient(
-    90deg,
-    transparent,
-    black 20%,
-    white 80%,
-    transparent
-  );
-}
+

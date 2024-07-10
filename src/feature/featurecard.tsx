@@ -1,6 +1,14 @@
-import React, { useEffect, useState } from "react";
+/*  left image right image
+
+some animtion on image entry
+
+and fix whatever bug there is
+*/
+
+import React, { useEffect, useRef, useState } from "react";
 import { cn } from "../lib/utils";
 import * as Accordion from "@radix-ui/react-accordion";
+import { motion } from "framer-motion";
 
 type cardDataProps = {
   id: number;
@@ -24,16 +32,16 @@ const cardData: cardDataProps[] = [
     title: "User-Centric Approach",
     content:
       "We prioritize the needs and preferences of our users in our design process.",
-    video:
-      "https://videos.pexels.com/video-files/26655285/11985455_2560_1440_30fps.mp4",
+    image:
+      "https://images.unsplash.com/photo-1686170287433-c95faf6d3608?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHwzfHx8ZW58MHx8fHx8",
   },
   {
     id: 3,
     title: "Seamless Integration",
     content:
       "Our features seamlessly integrate with your existing systems for a smooth experience.",
-    video:
-      "https://videos.pexels.com/video-files/9465394/9465394-uhd_2560_1440_25fps.mp4",
+    image:
+      "https://images.unsplash.com/photo-1720378042271-60aff1e1c538?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHwxMHx8fGVufDB8fHx8fA%3D%3D",
   },
   {
     id: 4,
@@ -49,6 +57,26 @@ const AccordionDemo = () => {
   const [currentIndex, setCurrentIndex] = useState<number | undefined>(
     undefined
   );
+
+  const carouselRef = useRef<HTMLUListElement>(null);
+
+  const scrollToIndex = (index: number) => {
+    if (carouselRef.current) {
+      const card = carouselRef.current.querySelectorAll(".card")[index];
+      if (card) {
+        card.scrollIntoView({
+          behavior: "smooth",
+          block: "nearest",
+          inline: "center",
+        });
+        setCurrentIndex(index);
+      }
+    }
+  };
+
+  useEffect(() => {
+    scrollToIndex(0);
+  }, []);
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -67,6 +95,35 @@ const AccordionDemo = () => {
 
     return () => clearInterval(timer);
   }, [currentIndex]);
+
+  useEffect(() => {
+    const handleAutoScroll = () => {
+      const nextIndex =
+        (currentIndex !== undefined ? currentIndex + 1 : 0) % cardData.length;
+      scrollToIndex(nextIndex);
+    };
+
+    const autoScrollTimer = setInterval(handleAutoScroll, 5000);
+
+    return () => clearInterval(autoScrollTimer);
+  }, [currentIndex]);
+
+  useEffect(() => {
+    const carousel = carouselRef.current;
+    if (carousel) {
+      const handleScroll = () => {
+        const scrollLeft = carousel.scrollLeft;
+        const cardWidth = carousel.querySelector(".card")?.clientWidth || 0;
+        console.log(cardWidth);
+        const newIndex = Math.round(scrollLeft / cardWidth);
+
+        setCurrentIndex(newIndex - 1);
+      };
+
+      carousel.addEventListener("scroll", handleScroll);
+      return () => carousel.removeEventListener("scroll", handleScroll);
+    }
+  }, []);
 
   return (
     <section className="max-w-5xl mx-auto px-7 xl:px-0 py-20 grid grid-cols-5 items-center h-full gap-x-10 bg-white">
@@ -104,15 +161,20 @@ const AccordionDemo = () => {
           ))}
         </Accordion.Root>
       </div>
-      <div className="col-span-5 md:col-span-3 h-full rounded-xl border border-neutral-300/50 p-1">
+      <div className="col-span-5 md:col-span-3 h-full">
         {cardData[currentIndex !== undefined ? currentIndex : 0]?.image &&
           !cardData[currentIndex !== undefined ? currentIndex : 0]?.video && (
-            <img
+            <motion.img
+              key={currentIndex}
               src={
                 cardData[currentIndex !== undefined ? currentIndex : 0].image
               }
               alt="feature"
-              className="w-full h-full aspect-auto rounded-lg object-cover"
+              className="w-full h-full aspect-auto object-cover rounded-xl border border-neutral-300/50 p-1"
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.8 }}
+              transition={{ duration: 0.5, ease: "easeOut" }}
             />
           )}
         {cardData[currentIndex !== undefined ? currentIndex : 0]?.video &&
@@ -129,12 +191,22 @@ const AccordionDemo = () => {
             />
           )}
       </div>
-      <div className="col-span-5 md:hidden h-full py-10 overflow-x-auto flex flex-nowrap snap-x">
+      <ul
+        ref={carouselRef}
+        className="[-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden col-span-5 md:hidden h-full py-10 overflow-x-auto flex flex-nowrap snap-x"
+        style={{
+          scrollSnapType: "x mandatory",
+          padding: "50px calc(50%)",
+        }}
+      >
         {cardData.map((item, index) => (
           <a
             key={item.id}
-            className="shrink-0 grid items-start mr-8 last:mr-0 justify-center h-full py-4 max-w-60 relative"
+            className="card shrink-0 grid items-start mr-8 last:mr-0 justify-center h-full py-4 max-w-60 relative"
             onClick={() => setCurrentIndex(index)}
+            style={{
+              scrollSnapAlign: "center",
+            }}
           >
             <div className="absolute top-0 bottom-0 left-0 right-auto overflow-hidden bg-sky-300/30 rounded-lg h-0.5 w-full">
               <div
@@ -150,7 +222,7 @@ const AccordionDemo = () => {
             <p className="text-sm max-w-sm text-balance mx-0">{item.content}</p>
           </a>
         ))}
-      </div>
+      </ul>
     </section>
   );
 };
