@@ -114,10 +114,11 @@ const AccordionDemo = () => {
       const handleScroll = () => {
         const scrollLeft = carousel.scrollLeft;
         const cardWidth = carousel.querySelector(".card")?.clientWidth || 0;
-        console.log(cardWidth);
-        const newIndex = Math.round(scrollLeft / cardWidth);
-
-        setCurrentIndex(newIndex - 1);
+        const newIndex = Math.min(
+          Math.floor(scrollLeft / cardWidth),
+          cardData.length - 1
+        );
+        setCurrentIndex(newIndex);
       };
 
       carousel.addEventListener("scroll", handleScroll);
@@ -126,7 +127,7 @@ const AccordionDemo = () => {
   }, []);
 
   return (
-    <section className="max-w-5xl mx-auto px-7 xl:px-0 py-20 grid grid-cols-5 items-center h-full gap-x-10 bg-white">
+    <section className="max-w-5xl mx-auto px-7 xl:px-0 py-20 grid grid-cols-5 items-center h-full gap-x-10 bg-white dark:bg-neutral-900">
       <div className="col-span-2 hidden md:block">
         <Accordion.Root
           className="w-[300px]"
@@ -171,9 +172,9 @@ const AccordionDemo = () => {
               }
               alt="feature"
               className="w-full h-full aspect-auto object-cover rounded-xl border border-neutral-300/50 p-1"
-              initial={{ opacity: 0, scale: 0.95 }}
-              animate={{ opacity: 1, scale: 1 }}
-              exit={{ opacity: 0, scale: 0.8 }}
+              initial={{ y: -10, scale: 0.95 }}
+              animate={{ y: 0, scale: 1 }}
+              exit={{ y: 10, scale: 0.95 }}
               transition={{ duration: 0.5, ease: "easeOut" }}
             />
           )}

@@ -185,9 +185,3 @@
     left: calc(75% + 5px);
   }
 }
-
-.scrollcontainer::-webkit-scrollbar {
-  display: none;
-}
-
-
