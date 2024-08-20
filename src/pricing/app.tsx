@@ -6,6 +6,7 @@ import Pricing5 from "./components/pricing5";
 import Pricing6 from "./components/pricing6";
 import Pricing7 from "./components/pricing7";
 import Pricing8 from "./components/pricing8";
+import Pricing9 from "./components/pricing9";
 
 export default function PricingPage() {
   return (
@@ -66,6 +67,14 @@ export default function PricingPage() {
       </div>
       <div className="border-b">
         <Pricing8 />
+      </div>
+      <div className="h-[10vh] bg-neutral-100 dark:bg-neutral-900 border-b border-t">
+        <h2 className="font-bold text-2xl flex items-center h-full justify-center">
+          Pricing-9
+        </h2>
+      </div>
+      <div className="border-b">
+        <Pricing9 />
       </div>
     </div>
   );

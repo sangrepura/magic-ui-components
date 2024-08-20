@@ -3,7 +3,7 @@ import Header2 from "./components/header2";
 import Header3 from "./components/header3";
 import Header4 from "./components/header4";
 import Header5 from "./components/header5";
-import Header6 from "./components/header6";
+import Header7 from "./components/header7";
 
 export default function HeaderPage() {
   return (
@@ -33,6 +33,9 @@ export default function HeaderPage() {
       </div>
       <div className="border">
         <Header5 />
+      </div>
+      <div className="border">
+        <Header7 />
       </div>
     </div>
   );

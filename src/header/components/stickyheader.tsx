@@ -3,10 +3,10 @@ import magicuiLogo from "../../assets/magicui-logo.png";
 
 export default function StickyHeader() {
   return (
-    <nav>
+    <main>
       <Header1 />
       <div className="w-full bg-white dark:bg-neutral-900">
-        <div className="flex flex-col gap-y-5 max-w-3xl mx-auto items-center justify-center h-[200vh] w-full bg-white dark:bg-neutral-900">
+        <div className="flex flex-col gap-y-5 max-w-3xl mx-auto items-center justify-center h-[150vh] w-full bg-white dark:bg-neutral-900">
           <img className="w-20 h-20" src={magicuiLogo} alt="MagicUI Logo" />
           <h1 className="text-4xl font-bold text-balance text-center">
             MagicUI is the best animated react library.
@@ -21,6 +21,6 @@ export default function StickyHeader() {
           </button>
         </div>
       </div>
-    </nav>
+    </main>
   );
 }

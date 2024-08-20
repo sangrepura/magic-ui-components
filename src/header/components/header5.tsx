@@ -9,7 +9,7 @@ interface NavItem {
 const navs: NavItem[] = [
   { name: "Home", link: "/" },
   { name: "Examples", link: "/examples" },
-  { name: "Motion", link: "/learnings" },
+  { name: "Services", link: "/services" },
 ];
 
 const Header5 = () => {
@@ -32,10 +32,10 @@ const Header5 = () => {
   };
 
   return (
-    <nav className="py-20 w-full dark:bg-neutral-800/60 bg-neutral-100/60">
+    <nav className="py-20 w-full">
       <ul
         onMouseLeave={handleMouseLeave}
-        className="relative mx-auto flex w-fit rounded-full border-2 border-black dark:border-white bg-white dark:bg-neutral-800 p-1"
+        className="relative mx-auto flex w-fit rounded-full border p-1.5"
         ref={ref}
       >
         {navs.map((item) => (

@@ -1,9 +1,77 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, {
+  useEffect,
+  useRef,
+  useState,
+  forwardRef,
+  ReactNode,
+} from "react";
 import { cn } from "../lib/utils";
 import * as Accordion from "@radix-ui/react-accordion";
-import { motion } from "framer-motion";
+import { motion, useInView } from "framer-motion";
 
-type cardDataProps = {
+type AccordionItemProps = {
+  children: React.ReactNode;
+  className?: string;
+} & Accordion.AccordionItemProps;
+
+const AccordionItem = forwardRef<HTMLDivElement, AccordionItemProps>(
+  ({ children, className, ...props }, forwardedRef) => (
+    <Accordion.Item
+      className={cn(
+        "mt-px overflow-hidden first:mt-0 first:rounded-t last:rounded-b focus-within:relative focus-within:z-10",
+        className
+      )}
+      {...props}
+      ref={forwardedRef}
+    >
+      {children}
+    </Accordion.Item>
+  )
+);
+
+type AccordionTriggerProps = {
+  children: React.ReactNode;
+  className?: string;
+};
+
+const AccordionTrigger = forwardRef<HTMLButtonElement, AccordionTriggerProps>(
+  ({ children, className, ...props }, forwardedRef) => (
+    <Accordion.Header className="flex">
+      <Accordion.Trigger
+        className={cn(
+          "group flex h-[45px] flex-1 cursor-pointer items-center justify-between px-5 text-[15px] leading-none outline-none",
+          className
+        )}
+        {...props}
+        ref={forwardedRef}
+      >
+        {children}
+      </Accordion.Trigger>
+    </Accordion.Header>
+  )
+);
+
+type AccordionContentProps = {
+  children: ReactNode;
+  className?: string;
+} & Accordion.AccordionContentProps;
+
+const AccordionContent = forwardRef<HTMLDivElement, AccordionContentProps>(
+  ({ children, className, ...props }, forwardedRef) => (
+    <Accordion.Content
+      className={cn(
+        "text-neutral-800 dark:text-neutral-400 font-medium data-[state=open]:animate-slideDown data-[state=closed]:animate-slideUp overflow-hidden text-[15px]",
+        className
+      )}
+      {...props}
+      ref={forwardedRef}
+    >
+      <div className="py-2 px-5">{children}</div>
+    </Accordion.Content>
+  )
+);
+
+type CardDataProps = {
   id: number;
   title: string;
   content: string;
@@ -11,7 +79,7 @@ type cardDataProps = {
   video?: string;
 };
 
-const cardData: cardDataProps[] = [
+const cardData: CardDataProps[] = [
   {
     id: 1,
     title: "Innovative Design",
@@ -49,40 +117,57 @@ const cardData: cardDataProps[] = [
 type FeatureProps = {
   collapseDelay?: number;
   ltr?: boolean;
+  linePosition?: "left" | "right";
 };
 
-const Feature = ({ collapseDelay = 5000, ltr = false }: FeatureProps) => {
+const Feature = ({
+  collapseDelay = 5000,
+  ltr = false,
+  linePosition = "left",
+}: FeatureProps) => {
   const [currentIndex, setCurrentIndex] = useState<number | undefined>(
     undefined
   );
 
   const carouselRef = useRef<HTMLUListElement>(null);
+  const ref = useRef(null);
+  const isInView = useInView(ref, {
+    once: true,
+    amount: 0.5,
+  });
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      if (isInView) {
+        setCurrentIndex(0);
+      } else {
+        setCurrentIndex(undefined);
+      }
+    }, 100);
+
+    return () => clearTimeout(timer);
+  }, [isInView]);
 
   const scrollToIndex = (index: number) => {
     if (carouselRef.current) {
       const card = carouselRef.current.querySelectorAll(".card")[index];
       if (card) {
-        card.scrollIntoView({
+        const cardRect = card.getBoundingClientRect();
+        const carouselRect = carouselRef.current.getBoundingClientRect();
+        const offset =
+          cardRect.left -
+          carouselRect.left -
+          (carouselRect.width - cardRect.width) / 2;
+
+        carouselRef.current.scrollTo({
+          left: carouselRef.current.scrollLeft + offset,
           behavior: "smooth",
-          block: "nearest",
-          inline: "center",
         });
+
         setCurrentIndex(index);
       }
     }
   };
-
-  useEffect(() => {
-    scrollToIndex(0);
-  }, []);
-
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setCurrentIndex(0);
-    }, 100);
-
-    return () => clearTimeout(timer);
-  }, []);
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -125,7 +210,10 @@ const Feature = ({ collapseDelay = 5000, ltr = false }: FeatureProps) => {
   }, []);
 
   return (
-    <section className=" px-7 xl:px-0 py-20 bg-white dark:bg-neutral-900">
+    <section
+      ref={ref}
+      className=" px-7 xl:px-0 py-20 bg-white dark:bg-neutral-900"
+    >
       <div className="max-w-5xl mx-auto grid grid-cols-5 items-center justify-center h-full gap-x-10">
         {/* col-span-2 md:flex items-end justify-end hidden */}
         <div className={`col-span-2 hidden md:block ${ltr ? "order-2" : ""}`}>
@@ -146,7 +234,9 @@ const Feature = ({ collapseDelay = 5000, ltr = false }: FeatureProps) => {
               >
                 <div
                   className={`absolute top-0 bottom-0 overflow-hidden bg-sky-300/30 rounded-lg h-full w-0.5 ${
-                    ltr ? "right-0 left-auto" : "left-0 right-auto"
+                    linePosition === "right"
+                      ? "right-0 left-auto"
+                      : "left-0 right-auto"
                   }`}
                 >
                   <div
@@ -168,7 +258,9 @@ const Feature = ({ collapseDelay = 5000, ltr = false }: FeatureProps) => {
           </Accordion.Root>
         </div>
         <div
-          className={`col-span-5 md:col-span-3 h-full ${ltr ? "order-1" : ""}`}
+          className={`col-span-5 md:col-span-3 min-h-[200px] h-[350px] w-auto ${
+            ltr ? "order-1" : ""
+          }`}
         >
           {cardData[currentIndex !== undefined ? currentIndex : 0]?.image &&
             !cardData[currentIndex !== undefined ? currentIndex : 0]?.video && (
@@ -179,12 +271,21 @@ const Feature = ({ collapseDelay = 5000, ltr = false }: FeatureProps) => {
                 }
                 alt="feature"
                 className="w-full h-full aspect-auto object-cover rounded-xl border border-neutral-300/50 p-1"
-                initial={{ y: -10, scale: 0.95 }}
-                animate={{ y: 0, scale: 1 }}
-                exit={{ y: 10, scale: 0.95 }}
-                transition={{ duration: 0.5, ease: "easeOut" }}
+                initial={{ opacity: 0, scale: 0.98 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 0.98 }}
+                transition={{
+                  duration: 0.25,
+                  ease: "easeOut",
+                }}
               />
             )}
+
+          {!cardData[currentIndex !== undefined ? currentIndex : 0]?.image &&
+            !cardData[currentIndex !== undefined ? currentIndex : 0]?.video && (
+              <div className="w-full h-full aspect-auto rounded-xl border border-neutral-300/50 p-1 bg-gray-200"></div>
+            )}
+
           {cardData[currentIndex !== undefined ? currentIndex : 0]?.video &&
             !cardData[currentIndex !== undefined ? currentIndex : 0]?.image && (
               <video
@@ -199,6 +300,7 @@ const Feature = ({ collapseDelay = 5000, ltr = false }: FeatureProps) => {
               />
             )}
         </div>
+
         <ul
           ref={carouselRef}
           className="[-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden col-span-5 md:hidden h-full py-10 overflow-x-auto flex flex-nowrap snap-x [mask-image:linear-gradient(90deg,transparent,black_20%,white_80%,transparent)] [-webkit-mask-image:linear-gradient(90deg,transparent,black_20%,white_80%,transparent)]"
@@ -239,58 +341,6 @@ const Feature = ({ collapseDelay = 5000, ltr = false }: FeatureProps) => {
   );
 };
 
-type AccordionItemProps = {
-  children: React.ReactNode;
-  className?: string;
-} & Accordion.AccordionItemProps;
-
-const AccordionItem = React.forwardRef<HTMLDivElement, AccordionItemProps>(
-  ({ children, className, ...props }, forwardedRef) => (
-    <Accordion.Item
-      className={cn(
-        "mt-px overflow-hidden first:mt-0 first:rounded-t last:rounded-b focus-within:relative focus-within:z-10",
-        className
-      )}
-      {...props}
-      ref={forwardedRef}
-    >
-      {children}
-    </Accordion.Item>
-  )
-);
-
-const AccordionTrigger = React.forwardRef<
-  HTMLButtonElement,
-  { children: React.ReactNode; className?: string }
->(({ children, className, ...props }, forwardedRef) => (
-  <Accordion.Header className="flex">
-    <Accordion.Trigger
-      className={cn(
-        " group flex h-[45px] flex-1 cursor-pointer items-center justify-between px-5 text-[15px] leading-none outline-none",
-        className
-      )}
-      {...props}
-      ref={forwardedRef}
-    >
-      {children}
-    </Accordion.Trigger>
-  </Accordion.Header>
-));
-
-const AccordionContent = React.forwardRef<
-  HTMLDivElement,
-  { children: React.ReactNode; className?: string }
->(({ children, className, ...props }, forwardedRef) => (
-  <Accordion.Content
-    className={cn(
-      "text-neutral-800 dark:text-neutral-400 font-medium data-[state=open]:animate-slideDown data-[state=closed]:animate-slideUp overflow-hidden text-[15px]",
-      className
-    )}
-    {...props}
-    ref={forwardedRef}
-  >
-    <div className="py-2 px-5">{children}</div>
-  </Accordion.Content>
-));
-
-export default Feature;
+export default function FeatureSection() {
+  return <Feature collapseDelay={10000} linePosition="right" />;
+}

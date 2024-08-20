@@ -90,16 +90,14 @@ const config = {
           to: { transform: "translateY(calc(-100% - var(--gap)))" },
         },
         shimmer: {
-          "0%": {
-            "background-position": "calc(-100% - 70px) 0",
+          "0%, 90%, 100%": {
+            "background-position": "calc(-100% - var(--shimmer-width)) 0",
           },
-          "50%": {
-            "background-position": "calc(100% + 70px) 0",
-          },
-          "100%": {
-            "background-position": "calc(-100% - 70px) 0",
+          "30%, 60%": {
+            "background-position": "calc(100% + var(--shimmer-width)) 0",
           },
         },
+
         "spin-around": {
           "0%": {
             transform: "translateZ(0) rotate(0)",
@@ -123,7 +121,7 @@ const config = {
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
-        shimmer: "shimmer 12s infinite",
+        shimmer: "shimmer 8s infinite",
         "spin-around": "spin-around calc(var(--speed) * 2) infinite linear",
         slide: "slide var(--speed) ease-in-out infinite alternate",
         marquee: "marquee var(--duration) linear infinite",
@@ -133,7 +131,10 @@ const config = {
       },
     },
   },
-  plugins: [require("tailwindcss-animate")],
+  plugins: [
+    require("tailwindcss-animate"),
+    require("@tailwindcss/container-queries"),
+  ],
 } satisfies Config;
 
 export default config;

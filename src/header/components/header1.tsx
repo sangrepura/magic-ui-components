@@ -1,14 +1,11 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import { motion, MotionConfig, AnimatePresence } from "framer-motion";
 import { ModeToggle } from "../../components/mode-toggle";
 import { useTheme } from "../../components/theme-provider";
 import magicUiLogo from "../../assets/magicui-logo.png";
 
-export default function Header1() {
+export function useScrollY() {
   const [scrollY, setScrollY] = useState(0);
-  const fixedNavRef = useRef<HTMLElement>(null);
-  const { theme } = useTheme();
-  const [active, setActive] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -22,15 +19,35 @@ export default function Header1() {
     };
   }, []);
 
+  return scrollY;
+}
+
+export default function Header1() {
+  const scrollY = useScrollY();
+  const stickyNavRef = useRef<HTMLElement>(null);
+  const { theme } = useTheme();
+  const [active, setActive] = useState(false);
+
+  const navLinks = ["Home", "About", "Services", "Contact"];
+
   return (
     <header
-      ref={fixedNavRef}
-      className=" bg-white dark:bg-neutral-900 py-7 px-10 xl:px-0"
+      ref={stickyNavRef}
+      className="sticky top-0 bg-white dark:bg-neutral-900 py-7 px-10 xl:px-0 z-50"
     >
       <nav className="max-w-5xl mx-auto flex items-center justify-between relative">
-        <img className="w-10 h-10" src={magicUiLogo} alt="MagicUI Logo" />
+        <motion.img
+          className="w-10 h-10"
+          src={magicUiLogo}
+          alt="MagicUI Logo"
+          animate={{
+            y: scrollY >= 120 ? -50 : 0,
+            opacity: scrollY >= 120 ? 0 : 1,
+          }}
+          transition={{ duration: 0.15 }}
+        />
 
-        <ul className="md:flex items-center gap-x-5 fixed left-4 right-4 z-[60] justify-center hidden">
+        <ul className="md:flex items-center gap-x-5 sticky top-4 left-4 right-4 z-[60] justify-center hidden">
           <motion.div
             initial={{ x: 0 }}
             animate={{
@@ -50,18 +67,14 @@ export default function Header1() {
           >
             <nav className="h-full hidden md:flex relative items-center justify-between gap-x-3.5">
               <ul className="h-full flex flex-col md:flex-row justify-center md:justify-start gap-6 md:gap-0 lg:gap-1">
-                <li className="px-[0.75rem] py-[0.375rem] flex items-center justify-center">
-                  Home
-                </li>
-                <li className="px-[0.75rem] py-[0.375rem] flex items-center justify-center">
-                  About
-                </li>
-                <li className="px-[0.75rem] py-[0.375rem] flex items-center justify-center">
-                  Services
-                </li>
-                <li className="px-[0.75rem] py-[0.375rem] flex items-center justify-center">
-                  Contact
-                </li>
+                {navLinks.map((link) => (
+                  <li
+                    key={link}
+                    className="px-[0.75rem] py-[0.375rem] flex items-center justify-center"
+                  >
+                    {link}
+                  </li>
+                ))}
               </ul>
             </nav>
             <motion.div
@@ -103,10 +116,17 @@ export default function Header1() {
           </motion.div>
         </ul>
 
-        <div className="z-[999] items-center gap-x-5 hidden md:flex">
+        <motion.div
+          className="z-[999] items-center gap-x-5 hidden md:flex"
+          animate={{
+            y: scrollY >= 120 ? -50 : 0,
+            opacity: scrollY >= 120 ? 0 : 1,
+          }}
+          transition={{ duration: 0.15 }}
+        >
           <button>Get Started</button>
           <ModeToggle />
-        </div>
+        </motion.div>
         <MotionConfig transition={{ duration: 0.3, ease: "easeInOut" }}>
           <motion.button
             onClick={() => setActive((prev) => !prev)}
