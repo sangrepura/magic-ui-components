@@ -13,6 +13,7 @@ import TextRevealShowcase from "./components/onscroll-textreveal/text-reveal-sho
 import CardShowcase from "./components/cards/CardShowcase";
 import BentoShowcase from "./components/bentrogrid/bento-showcase";
 import ShimmerShowcase from "./components/shimmer/shimmer-showcase";
+import HeroVideoShowcase from "./components/herovideo/herovideo-showcase";
 
 export default function App() {
   return (
@@ -31,6 +32,7 @@ export default function App() {
       <Route path="/card" element={<CardShowcase />} />
       <Route path="/bento" element={<BentoShowcase />} />
       <Route path="/shimmer" element={<ShimmerShowcase />} />
+      <Route path="/video" element={<HeroVideoShowcase />} />
     </Routes>
   );
 }

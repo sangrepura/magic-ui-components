@@ -13,6 +13,7 @@ const links = [
   { to: "/bento", text: "Bento Showcase" },
   { to: "/card", text: "Cards" },
   { to: "/shimmer", text: "Shimmer Effect" },
+  { to: "/video", text: "Video" },
 ];
 
 export default function Homepage() {

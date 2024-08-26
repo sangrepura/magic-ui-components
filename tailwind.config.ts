@@ -65,6 +65,11 @@ const config = {
         sm: "calc(var(--radius) - 4px)",
       },
       keyframes: {
+        "border-beam": {
+          "100%": {
+            "offset-distance": "100%",
+          },
+        },
         slideDown: {
           from: { height: "0px" },
           to: { height: "var(--radix-accordion-content-height)" },
@@ -128,6 +133,7 @@ const config = {
         "marquee-vertical": "marquee-vertical var(--duration) linear infinite",
         slideDown: "slideDown 300ms cubic-bezier(0.87, 0, 0.13, 1)",
         slideUp: "slideUp 300ms cubic-bezier(0.87, 0, 0.13, 1)",
+        "border-beam": "border-beam calc(var(--duration)*1s) infinite linear",
       },
     },
   },
