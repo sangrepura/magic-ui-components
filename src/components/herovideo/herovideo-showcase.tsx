@@ -32,7 +32,7 @@ export default function HeroVideoShowcase() {
     <>
       <Navbar />
       <section className="max-w-5xl mx-auto h-screen flex flex-col justify-center items-center px-7 lg:px-0 relative">
-        <div className="mb-6 p-4 rounded-lg shadow-lg">
+        <div className="mb-6 p-4 rounded-lg">
           <h3 className="text-center text-white font-semibold mb-3">
             Choose Animation Style
           </h3>
